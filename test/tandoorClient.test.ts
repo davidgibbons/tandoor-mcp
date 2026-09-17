@@ -86,3 +86,19 @@ describe('TandoorClient.getMealPlans', () => {
         await expect(client.getMealPlans('2026-01-01', '2026-01-07')).resolves.toMatchObject({ count: 1 });
     });
 });
+
+describe('TandoorClient.getShoppingList', () => {
+    it('returns results from a standard paginated response', async () => {
+        const fetchImpl = serving({
+            '/api/shopping-list-entry/': { count: 1, next: null, previous: null, results: [{ id: 1, food: { id: 1, name: 'egg', food_onhand: false }, unit: null, amount: 6, checked: false }] }
+        });
+        const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
+        await expect(client.getShoppingList()).resolves.toMatchObject({ count: 1 });
+    });
+
+    it('normalizes a bare-array response (seen on some Tandoor versions when the list is empty)', async () => {
+        const fetchImpl = serving({ '/api/shopping-list-entry/': [] });
+        const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
+        await expect(client.getShoppingList()).resolves.toEqual({ count: 0, next: null, previous: null, results: [] });
+    });
+});
