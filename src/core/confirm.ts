@@ -1,6 +1,5 @@
 import { createHmac, randomBytes, timingSafeEqual } from 'node:crypto';
-
-export type WriteTier = 'safe' | 'destructive';
+import type { WriteTier } from './permissions.ts';
 
 export const CONFIRM_TTL_MS = 300_000;
 const MAX_CONSUMED = 10_000;
