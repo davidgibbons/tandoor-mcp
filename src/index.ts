@@ -8,11 +8,13 @@ const CONFIG_DIR = process.env.TANDOOR_MCP_CONFIG_DIR ?? '/config';
 const VERSION = process.env.TANDOOR_MCP_VERSION ?? '0.0.0-dev';
 
 /** host, port from a `host:port` string, stripping the port from the end
- *  (not the first colon) so an IPv6 literal like `[::1]:6061` parses right. */
+ *  (not the first colon) so an IPv6 literal like `[::1]:6061` parses right —
+ *  and stripping the brackets `[::1]` itself, since Node/@hono/node-server
+ *  want the bare address, not the bracketed literal. */
 function parseBindAddr(addr: string): { hostname: string; port: number } {
     const match = /^(.*):(\d{1,5})$/.exec(addr);
     if (!match) throw new Error(`invalid bind_addr "${addr}", expected host:port`);
-    return { hostname: match[1] as string, port: Number(match[2]) };
+    return { hostname: (match[1] as string).replace(/^\[|\]$/g, ''), port: Number(match[2]) };
 }
 
 const buildServer = () =>

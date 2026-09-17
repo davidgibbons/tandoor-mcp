@@ -34,13 +34,22 @@ describe('buildApp', () => {
 
     it('rejects a request with a Host header not on allowed_hosts, when the list is non-empty', async () => {
         const app = buildApp({ config: { ...config, mcp: { ...config.mcp, allowed_hosts: ['recipes.internal'] } }, buildServer });
-        const res = await app.request('/healthz', { headers: { host: 'evil.example' } });
+        const res = await app.request('/mcp', {
+            method: 'POST',
+            headers: { host: 'evil.example', Authorization: `Bearer ${config.mcp.bearer_token}` }
+        });
         expect(res.status).toBe(403);
     });
 
     it('allows any Host when allowed_hosts is empty', async () => {
         const app = buildApp({ config, buildServer });
         const res = await app.request('/healthz', { headers: { host: 'anything.example' } });
+        expect(res.status).toBe(200);
+    });
+
+    it('answers /healthz with an unlisted Host even when allowed_hosts is non-empty', async () => {
+        const app = buildApp({ config: { ...config, mcp: { ...config.mcp, allowed_hosts: ['recipes.internal'] } }, buildServer });
+        const res = await app.request('/healthz', { headers: { host: 'evil.example' } });
         expect(res.status).toBe(200);
     });
 });

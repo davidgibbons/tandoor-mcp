@@ -37,10 +37,17 @@ export function buildApp(opts: { config: Config; buildServer: () => McpServer })
         })
     );
 
-    // Host allowlist runs before every route, including /healthz: a Hono
-    // route that returns a response without calling next() short-circuits
-    // any middleware registered after it, so this has to come first or
-    // /healthz would never be gated.
+    // /healthz is registered before the Host-allowlist middleware, which
+    // exempts it: a Hono route that returns a response without calling
+    // next() short-circuits any middleware registered after it. This is
+    // deliberate, not an oversight — a container health probe hits this
+    // container by `localhost` or an internal hostname nobody would put in
+    // allowed_hosts, so gating it would make health checks fail the moment
+    // allowed_hosts is set. /healthz only answers a name and version, both
+    // already public once the container is running, so the exposure cost
+    // of the exemption is negligible.
+    app.get('/healthz', c => c.json({ status: 'ok', name: NAME, version: process.env.TANDOOR_MCP_VERSION ?? '0.0.0-dev' }));
+
     app.use('*', async (c: Context, next) => {
         const allowed = config.mcp.allowed_hosts;
         if (allowed.length === 0) return next();
@@ -50,8 +57,6 @@ export function buildApp(opts: { config: Config; buildServer: () => McpServer })
         logger.warn({ host }, 'rejected request with an unlisted Host');
         return c.text('forbidden: Host not allowed', 403);
     });
-
-    app.get('/healthz', c => c.json({ status: 'ok', name: NAME, version: process.env.TANDOOR_MCP_VERSION ?? '0.0.0-dev' }));
 
     app.all('/mcp', async (c: Context) => {
         const presented = bearerFromHeader(c.req.header('Authorization'));
