@@ -102,3 +102,22 @@ describe('TandoorClient.getShoppingList', () => {
         await expect(client.getShoppingList()).resolves.toEqual({ count: 0, next: null, previous: null, results: [] });
     });
 });
+
+describe('TandoorClient.getCookLog', () => {
+    it('hits /api/cook-log/ with recipe and from_date when given', async () => {
+        const fetchImpl = serving({
+            '/api/cook-log/?recipe=1&from_date=2026-01-01': {
+                count: 1, next: null, previous: null,
+                results: [{ id: 1, recipe: { id: 1, name: 'Pasta', keywords: [] }, servings: 2, rating: 5, comment: 'great', created: '2026-01-02T00:00:00Z' }]
+            }
+        });
+        const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
+        await expect(client.getCookLog({ recipeId: 1, fromDate: '2026-01-01' })).resolves.toMatchObject({ count: 1 });
+    });
+
+    it('omits filters that were not given', async () => {
+        const fetchImpl = serving({ '/api/cook-log/': { count: 0, next: null, previous: null, results: [] } });
+        const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
+        await expect(client.getCookLog({})).resolves.toMatchObject({ count: 0 });
+    });
+});

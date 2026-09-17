@@ -1,5 +1,5 @@
 import { TandoorHttp } from '../core/http.ts';
-import type { Food, Keyword, MealPlan, MealType, PaginatedResponse, Recipe, RecipeSummary, ShoppingListEntry, Unit } from './types.ts';
+import type { CookLog, Food, Keyword, MealPlan, MealType, PaginatedResponse, Recipe, RecipeSummary, ShoppingListEntry, Unit } from './types.ts';
 
 export class TandoorClient {
     readonly #http: TandoorHttp;
@@ -57,5 +57,13 @@ export class TandoorClient {
         const raw = await this.#http.get<PaginatedResponse<ShoppingListEntry> | ShoppingListEntry[]>('/api/shopping-list-entry/');
         if (Array.isArray(raw)) return { count: raw.length, next: null, previous: null, results: raw };
         return raw;
+    }
+
+    async getCookLog(opts: { recipeId?: number; fromDate?: string }): Promise<PaginatedResponse<CookLog>> {
+        const params = new URLSearchParams();
+        if (opts.recipeId !== undefined) params.set('recipe', String(opts.recipeId));
+        if (opts.fromDate !== undefined) params.set('from_date', opts.fromDate);
+        const query = params.toString();
+        return this.#http.get(`/api/cook-log/${query ? `?${query}` : ''}`);
     }
 }
