@@ -73,3 +73,16 @@ describe('TandoorClient.getMealTypes', () => {
         await expect(client.getMealTypes()).resolves.toMatchObject({ count: 1 });
     });
 });
+
+describe('TandoorClient.getMealPlans', () => {
+    it('hits /api/meal-plan/ with from_date/to_date', async () => {
+        const fetchImpl = serving({
+            '/api/meal-plan/?from_date=2026-01-01&to_date=2026-01-07': {
+                count: 1, next: null, previous: null,
+                results: [{ id: 1, title: null, recipe: { id: 1, name: 'Pasta', keywords: [] }, servings: 2, note: null, date: '2026-01-01', meal_type: { id: 1, name: 'Dinner', order: 1 } }]
+            }
+        });
+        const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
+        await expect(client.getMealPlans('2026-01-01', '2026-01-07')).resolves.toMatchObject({ count: 1 });
+    });
+});
