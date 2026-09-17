@@ -57,3 +57,19 @@ describe('TandoorClient.getRecipe', () => {
         expect(recipe.steps[0]?.ingredients[0]?.amount).toBe(200);
     });
 });
+
+describe('TandoorClient.getUnits', () => {
+    it('hits /api/unit/', async () => {
+        const fetchImpl = serving({ '/api/unit/?page_size=50': { count: 1, next: null, previous: null, results: [{ id: 1, name: 'cup' }] } });
+        const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
+        await expect(client.getUnits()).resolves.toMatchObject({ count: 1 });
+    });
+});
+
+describe('TandoorClient.getMealTypes', () => {
+    it('hits /api/meal-type/', async () => {
+        const fetchImpl = serving({ '/api/meal-type/': { count: 1, next: null, previous: null, results: [{ id: 1, name: 'Dinner', order: 1 }] } });
+        const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
+        await expect(client.getMealTypes()).resolves.toMatchObject({ count: 1 });
+    });
+});

@@ -1,5 +1,5 @@
 import { TandoorHttp } from '../core/http.ts';
-import type { Food, Keyword, PaginatedResponse, Recipe, RecipeSummary } from './types.ts';
+import type { Food, Keyword, MealType, PaginatedResponse, Recipe, RecipeSummary, Unit } from './types.ts';
 
 export class TandoorClient {
     readonly #http: TandoorHttp;
@@ -36,5 +36,15 @@ export class TandoorClient {
 
     async getRecipe(id: number): Promise<Recipe> {
         return this.#http.get(`/api/recipe/${id}/`);
+    }
+
+    async getUnits(query?: string, limit = 50): Promise<PaginatedResponse<Unit>> {
+        const params = new URLSearchParams({ page_size: String(limit) });
+        if (query !== undefined) params.set('query', query);
+        return this.#http.get(`/api/unit/?${params.toString()}`);
+    }
+
+    async getMealTypes(): Promise<PaginatedResponse<MealType>> {
+        return this.#http.get('/api/meal-type/');
     }
 }
