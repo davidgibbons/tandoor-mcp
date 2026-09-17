@@ -4,5 +4,6 @@ dist
 coverage
 specs/*.json
 src/generated
-config/
+/config/
+config.yaml
 *.log

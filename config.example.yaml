@@ -1,0 +1,20 @@
+tandoor:
+  # Base URL of your Tandoor instance.
+  url: https://recipes.example.com
+  # A personal API token generated in Tandoor under Settings -> API,
+  # scoped to whatever user you want tandoor-mcp to act as.
+  token: your-tandoor-api-token
+  # timeout_ms: 10000
+
+mcp:
+  # Token clients must send as `Authorization: Bearer <token>` to reach /mcp.
+  # Generate one with: openssl rand -hex 32
+  bearer_token: replace-with-a-random-32-plus-character-token
+  # bind_addr: 127.0.0.1:6061
+  # allowed_hosts: []
+
+permissions:
+  # Both default to false. A write tool call previews and refuses to apply
+  # until you turn the matching tier on here.
+  safe_write: false
+  destructive: false
