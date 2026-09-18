@@ -112,4 +112,8 @@ export class TandoorClient {
     async deleteShoppingListEntry(id: number): Promise<void> {
         await this.#http.delete(`/api/shopping-list-entry/${id}/`);
     }
+
+    async updateFoodOnHand(id: number, onHand: boolean): Promise<Food> {
+        return this.#http.patch(`/api/food/${id}/`, { food_onhand: onHand });
+    }
 }

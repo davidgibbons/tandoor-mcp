@@ -184,3 +184,12 @@ describe('TandoorClient shopping list writes', () => {
         await expect(client.deleteShoppingListEntry(1)).resolves.toBeUndefined();
     });
 });
+
+describe('TandoorClient.updateFoodOnHand', () => {
+    it('patches food_onhand', async () => {
+        const fetchImpl = serving({ '/api/food/1/': { id: 1, name: 'egg', food_onhand: true } });
+        const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
+        const food = await client.updateFoodOnHand(1, true);
+        expect(food.food_onhand).toBe(true);
+    });
+});
