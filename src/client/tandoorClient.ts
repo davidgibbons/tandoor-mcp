@@ -116,4 +116,8 @@ export class TandoorClient {
     async updateFoodOnHand(id: number, onHand: boolean): Promise<Food> {
         return this.#http.patch(`/api/food/${id}/`, { food_onhand: onHand });
     }
+
+    async createCookLog(payload: { recipe: number; servings: number; rating?: number; comment?: string }): Promise<CookLog> {
+        return this.#http.post('/api/cook-log/', payload);
+    }
 }

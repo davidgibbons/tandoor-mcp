@@ -193,3 +193,12 @@ describe('TandoorClient.updateFoodOnHand', () => {
         expect(food.food_onhand).toBe(true);
     });
 });
+
+describe('TandoorClient.createCookLog', () => {
+    it('posts to /api/cook-log/', async () => {
+        const fetchImpl = serving({ '/api/cook-log/': { id: 1, recipe: { id: 1, name: 'Pasta', keywords: [] }, servings: 2, rating: 5, comment: 'great', created: '2026-01-01T00:00:00Z' } });
+        const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
+        const log = await client.createCookLog({ recipe: 1, servings: 2, rating: 5, comment: 'great' });
+        expect(log.id).toBe(1);
+    });
+});
