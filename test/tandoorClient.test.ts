@@ -202,3 +202,17 @@ describe('TandoorClient.createCookLog', () => {
         expect(log.id).toBe(1);
     });
 });
+
+describe('TandoorClient meal plan single-item operations', () => {
+    it('getMealPlan fetches one entry by id', async () => {
+        const fetchImpl = serving({ '/api/meal-plan/5/': { id: 5, title: null, recipe: { id: 1, name: 'Pasta', keywords: [] }, servings: 2, note: null, date: '2026-01-01', meal_type: { id: 1, name: 'Dinner', order: 1 } } });
+        const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
+        await expect(client.getMealPlan(5)).resolves.toMatchObject({ id: 5 });
+    });
+
+    it('deleteMealPlan deletes by id', async () => {
+        const fetchImpl = serving({ '/api/meal-plan/5/': null });
+        const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
+        await expect(client.deleteMealPlan(5)).resolves.toBeUndefined();
+    });
+});

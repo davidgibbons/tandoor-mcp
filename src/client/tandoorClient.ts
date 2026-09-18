@@ -120,4 +120,15 @@ export class TandoorClient {
     async createCookLog(payload: { recipe: number; servings: number; rating?: number; comment?: string }): Promise<CookLog> {
         return this.#http.post('/api/cook-log/', payload);
     }
+
+    /** Inferred from Tandoor's uniform DRF-ViewSet convention, not directly observed —
+     *  verify during Task 28's fixture capture. If it 404s, fall back to filtering
+     *  getMealPlans over a wide date range and matching `id` client-side. */
+    async getMealPlan(id: number): Promise<MealPlan> {
+        return this.#http.get(`/api/meal-plan/${id}/`);
+    }
+
+    async deleteMealPlan(id: number): Promise<void> {
+        await this.#http.delete(`/api/meal-plan/${id}/`);
+    }
 }
