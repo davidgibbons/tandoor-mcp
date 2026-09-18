@@ -1,8 +1,13 @@
 import { serve } from '@hono/node-server';
 import { McpServer } from '@modelcontextprotocol/server';
 import { bootstrap } from './bootstrap.ts';
+import { TandoorClient } from './client/tandoorClient.ts';
 import { ConfigInvalidError } from './config/load.ts';
+import type { Config } from './config/schema.ts';
+import { ConfirmTokens } from './core/confirm.ts';
 import { logger } from './core/logger.ts';
+import type { WriteAudit } from './core/audit.ts';
+import { registerAllTools } from './tools/register.ts';
 
 const CONFIG_DIR = process.env.TANDOOR_MCP_CONFIG_DIR ?? '/config';
 const VERSION = process.env.TANDOOR_MCP_VERSION ?? '0.0.0-dev';
@@ -17,16 +22,33 @@ function parseBindAddr(addr: string): { hostname: string; port: number } {
     return { hostname: (match[1] as string).replace(/^\[|\]$/g, ''), port: Number(match[2]) };
 }
 
-const buildServer = () =>
-    new McpServer(
+// These are assigned once bootstrap() resolves, below — but buildServer is
+// only ever invoked lazily, per-request, by createMcpHandler (see app.ts),
+// and that first request cannot arrive before serve() is called after
+// bootstrap() has already returned. So by the time this closure runs, every
+// one of these is set.
+let config: Config;
+let client: TandoorClient;
+let audit: WriteAudit;
+const confirm = new ConfirmTokens();
+
+const buildServer = () => {
+    const server = new McpServer(
         { name: 'tandoor-mcp', version: VERSION },
         { instructions: 'An MCP server for Tandoor Recipes.', capabilities: { tools: { listChanged: false } } }
     );
+    registerAllTools(server, { client, context: { permissions: config.permissions, confirm, audit } });
+    return server;
+};
 
 try {
-    const { app, config } = await bootstrap(CONFIG_DIR, buildServer);
+    const bootstrapped = await bootstrap(CONFIG_DIR, buildServer);
+    config = bootstrapped.config;
+    audit = bootstrapped.audit;
+    client = new TandoorClient(config.tandoor.url, config.tandoor.token, config.tandoor.timeout_ms);
+
     const { hostname, port } = parseBindAddr(config.mcp.bind_addr);
-    serve({ fetch: app.fetch, hostname, port }, info => {
+    serve({ fetch: bootstrapped.app.fetch, hostname, port }, info => {
         logger.info({ port: info.port }, 'tandoor-mcp listening');
     });
 } catch (err) {
