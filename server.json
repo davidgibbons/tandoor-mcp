@@ -5,26 +5,48 @@
   "description": "An MCP server for Tandoor Recipes: recipe search and authoring, meal planning, shopping lists, and pantry tracking.",
   "version": "0.1.0",
   "websiteUrl": "https://github.com/davidgibbons/tandoor-mcp",
-  "repository": { "url": "https://github.com/davidgibbons/tandoor-mcp", "source": "github" },
+  "repository": {
+    "url": "https://github.com/davidgibbons/tandoor-mcp",
+    "source": "github"
+  },
   "packages": [
     {
       "registryType": "oci",
       "identifier": "ghcr.io/davidgibbons/tandoor-mcp:latest",
       "runtimeHint": "docker",
       "runtimeArguments": [
-        { "type": "named", "name": "-p", "value": "6061:6061", "description": "Publish the MCP port" },
+        {
+          "type": "named",
+          "name": "-p",
+          "value": "6061:6061",
+          "description": "Publish the MCP port"
+        },
         {
           "type": "named",
           "name": "-v",
           "value": "{config_dir}:/config",
           "description": "Host directory holding config.yaml and the write audit log",
           "isRequired": true,
-          "variables": { "config_dir": { "description": "Directory on the host to keep tandoor-mcp's configuration in", "format": "filepath", "isRequired": true } }
+          "variables": {
+            "config_dir": {
+              "description": "Directory on the host to keep tandoor-mcp's configuration in",
+              "format": "filepath",
+              "isRequired": true
+            }
+          }
         }
       ],
       "environmentVariables": [
-        { "name": "PUID", "description": "User id owning the files in /config", "default": "1000" },
-        { "name": "PGID", "description": "Group id owning the files in /config", "default": "1000" }
+        {
+          "name": "PUID",
+          "description": "User id owning the files in /config",
+          "default": "1000"
+        },
+        {
+          "name": "PGID",
+          "description": "Group id owning the files in /config",
+          "default": "1000"
+        }
       ],
       "transport": {
         "type": "streamable-http",
@@ -36,7 +58,13 @@
             "value": "Bearer {token}",
             "isRequired": true,
             "isSecret": true,
-            "variables": { "token": { "description": "The mcp.bearer_token value from config.yaml", "isRequired": true, "isSecret": true } }
+            "variables": {
+              "token": {
+                "description": "The mcp.bearer_token value from config.yaml",
+                "isRequired": true,
+                "isSecret": true
+              }
+            }
           }
         ]
       }
