@@ -8,8 +8,8 @@ import { serving } from './helpers/serve.ts';
 const PLANS = {
     count: 2, next: null, previous: null,
     results: [
-        { id: 1, title: null, recipe: { id: 1, name: 'Pasta', keywords: [] }, servings: 2, note: 'note <b>x</b>', date: '2026-01-01', meal_type: { id: 1, name: 'Dinner', order: 1 } },
-        { id: 2, title: null, recipe: { id: 2, name: 'Salad', keywords: [] }, servings: 1, note: null, date: '2026-01-02', meal_type: { id: 2, name: 'Lunch', order: 2 } }
+        { id: 1, title: null, recipe: { id: 1, name: 'Pasta', keywords: [] }, servings: 2, note: 'note <b>x</b>', from_date: '2026-01-01', meal_type: { id: 1, name: 'Dinner', order: 1 } },
+        { id: 2, title: null, recipe: { id: 2, name: 'Salad', keywords: [] }, servings: 1, note: null, from_date: '2026-01-02', meal_type: { id: 2, name: 'Lunch', order: 2 } }
     ]
 };
 

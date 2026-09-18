@@ -17,7 +17,7 @@ export function registerDeleteMealPlan(server: McpServer, client: TandoorClient,
             const label = entry.recipe?.name ?? entry.title ?? '(untitled)';
             return {
                 target: String(id),
-                summary: `Delete the ${entry.meal_type.name} meal plan entry for "${label}" on ${entry.date}.`,
+                summary: `Delete the ${entry.meal_type.name} meal plan entry for "${label}" on ${entry.from_date.slice(0, 10)}.`,
                 effects: ['Cannot be undone.'],
                 args: { id }
             };

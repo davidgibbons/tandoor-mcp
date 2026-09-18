@@ -17,7 +17,7 @@ describe('plan_meals tool', () => {
         const fetchImpl = serving({
             '/api/recipe/?query=Pasta&page_size=1': { count: 1, next: null, previous: null, results: [{ id: 1, name: 'Pasta', keywords: [] }] },
             '/api/meal-type/': { count: 1, next: null, previous: null, results: [{ id: 2, name: 'Dinner', order: 1 }] },
-            '/api/meal-plan/': { id: 5, title: null, recipe: { id: 1, name: 'Pasta', keywords: [] }, servings: 2, note: null, date: '2026-01-01', meal_type: { id: 2, name: 'Dinner', order: 1 } }
+            '/api/meal-plan/': { id: 5, title: null, recipe: { id: 1, name: 'Pasta', keywords: [] }, servings: 2, note: null, from_date: '2026-01-01', meal_type: { id: 2, name: 'Dinner', order: 1 } }
         });
         const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
         const server = new McpServer({ name: 'test', version: '0.0.0' }, { capabilities: { tools: {} } });

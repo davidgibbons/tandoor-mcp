@@ -53,7 +53,7 @@ export function registerPlanMeals(server: McpServer, client: TandoorClient, cont
                 target: `${resolvedRecipe.id}:${resolvedMealType.id}:${dates.join(',')}`,
                 summary: `Add "${resolvedRecipe.name}" to the meal plan as ${resolvedMealType.name} on ${dates.length === 1 ? dates[0] : `${dates.length} dates`}.`,
                 effects: dates.map(date => `Creates a ${resolvedMealType.name} entry on ${date} for ${resolvedRecipe.name}.`),
-                args: { recipeId: resolvedRecipe.id, mealTypeId: resolvedMealType.id, dates, servings, title: title ?? null, note: note ?? null }
+                args: { recipeId: resolvedRecipe.id, mealTypeId: resolvedMealType.id, dates, servings, title, note }
             };
         },
 
@@ -63,12 +63,19 @@ export function registerPlanMeals(server: McpServer, client: TandoorClient, cont
                 mealTypeId: number;
                 dates: string[];
                 servings: number;
-                title: string | null;
-                note: string | null;
+                title: string | undefined;
+                note: string | undefined;
             };
             const created: number[] = [];
             for (const date of dates) {
-                const entry = await client.createMealPlan({ recipe: recipeId, title, servings, date, meal_type: mealTypeId, note });
+                const entry = await client.createMealPlan({
+                    recipe: recipeId,
+                    servings,
+                    from_date: date,
+                    meal_type: mealTypeId,
+                    ...(title === undefined ? {} : { title }),
+                    ...(note === undefined ? {} : { note })
+                });
                 created.push(entry.id);
             }
             return { created };

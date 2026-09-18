@@ -46,7 +46,7 @@ export type MealPlan = {
     recipe: RecipeSummary | null;
     servings: number;
     note?: string | null;
-    date: string;
+    from_date: string;
     meal_type: MealType;
 };
 
@@ -88,4 +88,4 @@ export type CreateRecipeRequest = {
     steps: CreateStepRequest[];
 };
 
-export type CreateMealPlanRequest = { recipe: number | null; title: string | null; servings: number; date: string; meal_type: number; note: string | null };
+export type CreateMealPlanRequest = { recipe: number | null; title?: string; servings: number; from_date: string; meal_type: number; note?: string };

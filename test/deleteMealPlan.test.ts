@@ -18,7 +18,7 @@ describe('delete_meal_plan tool', () => {
             'https://t.example',
             'secret',
             5000,
-            serving({ '/api/meal-plan/5/': { id: 5, title: null, recipe: { id: 1, name: 'Pasta', keywords: [] }, servings: 2, note: null, date: '2026-01-01', meal_type: { id: 1, name: 'Dinner', order: 1 } } })
+            serving({ '/api/meal-plan/5/': { id: 5, title: null, recipe: { id: 1, name: 'Pasta', keywords: [] }, servings: 2, note: null, from_date: '2026-01-01', meal_type: { id: 1, name: 'Dinner', order: 1 } } })
         );
         const server = new McpServer({ name: 'test', version: '0.0.0' }, { capabilities: { tools: {} } });
         registerDeleteMealPlan(server, client, buildContext({ safe_write: true }));
@@ -31,7 +31,7 @@ describe('delete_meal_plan tool', () => {
 
     it('deletes once confirmed with destructive permission', async () => {
         const fetchImpl = serving({
-            '/api/meal-plan/5/': { id: 5, title: null, recipe: { id: 1, name: 'Pasta', keywords: [] }, servings: 2, note: null, date: '2026-01-01', meal_type: { id: 1, name: 'Dinner', order: 1 } }
+            '/api/meal-plan/5/': { id: 5, title: null, recipe: { id: 1, name: 'Pasta', keywords: [] }, servings: 2, note: null, from_date: '2026-01-01', meal_type: { id: 1, name: 'Dinner', order: 1 } }
         });
         const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
         const server = new McpServer({ name: 'test', version: '0.0.0' }, { capabilities: { tools: {} } });

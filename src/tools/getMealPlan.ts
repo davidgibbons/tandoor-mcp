@@ -27,7 +27,7 @@ export function registerGetMealPlan(server: McpServer, client: TandoorClient): v
             const filtered = response.results.filter(p => meal_type === undefined || p.meal_type.name.toLowerCase() === meal_type.toLowerCase());
             const projected = filtered.map(p => ({
                 id: p.id,
-                date: p.date,
+                date: p.from_date.slice(0, 10),
                 meal_type: p.meal_type.name,
                 recipe_id: p.recipe?.id ?? null,
                 recipe_name: p.recipe?.name ?? null,
