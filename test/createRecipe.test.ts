@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { WriteAudit } from '../src/core/audit.ts';
 import { ConfirmTokens } from '../src/core/confirm.ts';
 import { TandoorClient } from '../src/client/tandoorClient.ts';
-import { parseIngredientLine, registerCreateRecipe } from '../src/tools/createRecipe.ts';
+import { parseIngredientLine, registerCreateRecipe, toDecimalAmount } from '../src/tools/createRecipe.ts';
 import type { WriteContext } from '../src/tools/write.ts';
 import { callTool } from './helpers/callTool.ts';
 import { serving } from './helpers/serve.ts';
@@ -31,6 +31,21 @@ describe('parseIngredientLine', () => {
 
     it('defaults amount to "1" for a line with no leading number', () => {
         expect(parseIngredientLine('salt to taste')).toEqual({ amount: '1', food: 'salt to taste' });
+    });
+});
+
+describe('toDecimalAmount', () => {
+    it('leaves a whole or decimal number as-is', () => {
+        expect(toDecimalAmount('2')).toBe('2');
+        expect(toDecimalAmount('2.5')).toBe('2.5');
+    });
+
+    it('converts a fraction to a decimal', () => {
+        expect(toDecimalAmount('1/2')).toBe('0.5');
+    });
+
+    it('converts a mixed number to a decimal', () => {
+        expect(toDecimalAmount('1 1/2')).toBe('1.5');
     });
 });
 

@@ -26,6 +26,18 @@ type PlannedRequest = {
     ingredients: ParsedIngredient[];
 };
 
+/** Tandoor's `amount` field is a decimal, not free text — it 400s on "1/2".
+ *  Converts a parsed amount ("2", "1/2", "1 1/2") to the decimal string Tandoor accepts. */
+export function toDecimalAmount(amount: string): string {
+    const mixed = /^(\d+)\s+(\d+)\/(\d+)$/.exec(amount);
+    if (mixed) return String(Number(mixed[1]) + Number(mixed[2]) / Number(mixed[3]));
+
+    const fraction = /^(\d+)\/(\d+)$/.exec(amount);
+    if (fraction) return String(Number(fraction[1]) / Number(fraction[2]));
+
+    return amount;
+}
+
 /**
  * ponytail: a fixed-shape "[amount] [unit] food [(note)]" parser, not a
  * natural-language ingredient parser. Good enough for straightforward
@@ -108,7 +120,7 @@ export function registerCreateRecipe(server: McpServer, client: TandoorClient, c
                 ingredients.push({
                     food,
                     unit,
-                    amount: parsed.amount,
+                    amount: toDecimalAmount(parsed.amount),
                     ...(parsed.note === undefined ? {} : { note: parsed.note }),
                     order: index,
                     is_header: false,
