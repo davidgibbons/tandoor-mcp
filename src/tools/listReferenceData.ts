@@ -29,8 +29,17 @@ export function registerListReferenceData(server: McpServer, client: TandoorClie
 }
 
 async function fetchByKind(client: TandoorClient, kind: (typeof KIND)[number], query: string | undefined, limit: number): Promise<{ id: number; name: string }[]> {
-    if (kind === 'keyword') return (await client.searchKeywords(query ?? '', limit)).results;
-    if (kind === 'unit') return (await client.getUnits(query, limit)).results;
-    if (kind === 'food') return (await client.searchFoods(query ?? '', limit)).results;
-    return (await client.getMealTypes()).results;
+    const results =
+        kind === 'keyword'
+            ? (await client.searchKeywords(query ?? '', limit)).results
+            : kind === 'unit'
+              ? (await client.getUnits(query, limit)).results
+              : kind === 'food'
+                ? (await client.searchFoods(query ?? '', limit)).results
+                : (await client.getMealTypes()).results;
+    // Project explicitly rather than returning the fetched objects as-is:
+    // Tandoor's actual payloads carry more than {id, name} (e.g. a meal
+    // type's created_by), and this tool's contract is a spelling lookup,
+    // not a passthrough of internal fields.
+    return results.map(r => ({ id: r.id, name: r.name }));
 }

@@ -37,4 +37,18 @@ describe('list_reference_data tool', () => {
         const result = await callTool(server, 'list_reference_data', { kind: 'meal_type' });
         expect(result.structuredContent?.total).toBe(1);
     });
+
+    it('projects to {id, name}, dropping internal fields Tandoor also returns', async () => {
+        const client = new TandoorClient(
+            'https://t.example',
+            'secret',
+            5000,
+            serving({ '/api/meal-type/': { count: 1, next: null, previous: null, results: [{ id: 1, name: 'Dinner', order: 1, created_by: 2, color: null, time: null }] } })
+        );
+        const server = new McpServer({ name: 'test', version: '0.0.0' }, { capabilities: { tools: {} } });
+        registerListReferenceData(server, client);
+        const result = await callTool(server, 'list_reference_data', { kind: 'meal_type' });
+        const items = result.structuredContent?.items as unknown[];
+        expect(items).toEqual([{ id: 1, name: 'Dinner' }]);
+    });
 });
