@@ -121,3 +121,35 @@ describe('TandoorClient.getCookLog', () => {
         await expect(client.getCookLog({})).resolves.toMatchObject({ count: 0 });
     });
 });
+
+describe('TandoorClient food/unit resolution', () => {
+    it('resolveFoodId returns an existing food without creating one', async () => {
+        const fetchImpl = serving({ '/api/food/?query=egg&page_size=1': { count: 1, next: null, previous: null, results: [{ id: 4, name: 'egg', food_onhand: false }] } });
+        const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
+        await expect(client.resolveFoodId('egg')).resolves.toEqual({ id: 4, name: 'egg' });
+    });
+
+    it('resolveFoodId creates a food when none is found', async () => {
+        const fetchImpl = serving({
+            '/api/food/?query=durian&page_size=1': { count: 0, next: null, previous: null, results: [] },
+            '/api/food/': { id: 99, name: 'durian', food_onhand: false }
+        });
+        const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
+        await expect(client.resolveFoodId('durian')).resolves.toEqual({ id: 99, name: 'durian' });
+    });
+
+    it('resolveUnitId returns an existing unit without creating one', async () => {
+        const fetchImpl = serving({ '/api/unit/?query=cup&page_size=1': { count: 1, next: null, previous: null, results: [{ id: 2, name: 'cup' }] } });
+        const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
+        await expect(client.resolveUnitId('cup')).resolves.toEqual({ id: 2, name: 'cup' });
+    });
+});
+
+describe('TandoorClient.createRecipe', () => {
+    it('posts to /api/recipe/ and returns the created recipe', async () => {
+        const fetchImpl = serving({ '/api/recipe/': { id: 5, name: 'New Recipe', keywords: [], steps: [] } });
+        const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
+        const recipe = await client.createRecipe({ name: 'New Recipe', description: '', servings: 2, working_time: 0, waiting_time: 0, keywords: [], steps: [] });
+        expect(recipe.id).toBe(5);
+    });
+});

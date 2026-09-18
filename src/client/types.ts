@@ -61,3 +61,23 @@ export type CookLog = {
     comment?: string | null;
     created: string;
 };
+
+export type CreateStepIngredientRequest = {
+    food: { id: number; name: string };
+    unit: { id: number; name: string } | null;
+    amount: string;
+    note?: string;
+    order: number;
+    is_header: boolean;
+    no_amount: boolean;
+};
+export type CreateStepRequest = { name?: string; instruction: string; order: number; ingredients: CreateStepIngredientRequest[] };
+export type CreateRecipeRequest = {
+    name: string;
+    description?: string;
+    servings?: number;
+    working_time: number;
+    waiting_time: number;
+    keywords: { name: string }[];
+    steps: CreateStepRequest[];
+};

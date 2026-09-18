@@ -1,5 +1,5 @@
 import { TandoorHttp } from '../core/http.ts';
-import type { CookLog, Food, Keyword, MealPlan, MealType, PaginatedResponse, Recipe, RecipeSummary, ShoppingListEntry, Unit } from './types.ts';
+import type { CookLog, CreateRecipeRequest, Food, Keyword, MealPlan, MealType, PaginatedResponse, Recipe, RecipeSummary, ShoppingListEntry, Unit } from './types.ts';
 
 export class TandoorClient {
     readonly #http: TandoorHttp;
@@ -39,8 +39,8 @@ export class TandoorClient {
     }
 
     async getUnits(query?: string, limit = 50): Promise<PaginatedResponse<Unit>> {
-        const params = new URLSearchParams({ page_size: String(limit) });
-        if (query !== undefined) params.set('query', query);
+        // Build with `query` first when present, matching searchFoods' param order.
+        const params = query !== undefined ? new URLSearchParams({ query, page_size: String(limit) }) : new URLSearchParams({ page_size: String(limit) });
         return this.#http.get(`/api/unit/?${params.toString()}`);
     }
 
@@ -65,5 +65,35 @@ export class TandoorClient {
         if (opts.fromDate !== undefined) params.set('from_date', opts.fromDate);
         const query = params.toString();
         return this.#http.get(`/api/cook-log/${query ? `?${query}` : ''}`);
+    }
+
+    async createFood(name: string): Promise<Food> {
+        return this.#http.post('/api/food/', { name });
+    }
+
+    /** Searches by name first; creates the food only when nothing matches. */
+    async resolveFoodId(name: string): Promise<{ id: number; name: string }> {
+        const found = await this.searchFoods(name, 1);
+        const match = found.results[0];
+        if (match !== undefined) return { id: match.id, name: match.name };
+        const created = await this.createFood(name);
+        return { id: created.id, name: created.name };
+    }
+
+    async createUnit(name: string): Promise<Unit> {
+        return this.#http.post('/api/unit/', { name });
+    }
+
+    /** Searches by name first; creates the unit only when nothing matches. */
+    async resolveUnitId(name: string): Promise<{ id: number; name: string }> {
+        const found = await this.getUnits(name, 1);
+        const match = found.results[0];
+        if (match !== undefined) return { id: match.id, name: match.name };
+        const created = await this.createUnit(name);
+        return { id: created.id, name: created.name };
+    }
+
+    async createRecipe(payload: CreateRecipeRequest): Promise<Recipe> {
+        return this.#http.post('/api/recipe/', payload);
     }
 }
