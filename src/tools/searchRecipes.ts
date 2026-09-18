@@ -4,13 +4,13 @@ import type { TandoorClient } from '../client/tandoorClient.ts';
 import { fenceText } from '../core/fence.ts';
 import { LimitSchema, MAX_LIMIT, OffsetSchema, READ_ONLY, TruncationSchema, applyLimit, listText, toolInput } from '../core/shape.ts';
 
-const project = (recipe: { id: number; name: string; description?: string | null; rating?: number | null; servings?: number | null; keywords: { name: string }[] }) => ({
+const project = (recipe: { id: number; name: string; description?: string | null; rating?: number | null; servings?: number | null; keywords: { label: string }[] }) => ({
     id: recipe.id,
     name: recipe.name,
     description: recipe.description ? fenceText(recipe.description, 'description') : '',
     rating: recipe.rating ?? null,
     servings: recipe.servings ?? null,
-    keywords: recipe.keywords.map(k => k.name)
+    keywords: recipe.keywords.map(k => k.label)
 });
 
 export function registerSearchRecipes(server: McpServer, client: TandoorClient): void {

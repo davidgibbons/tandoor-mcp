@@ -5,13 +5,18 @@ export type Unit = { id: number; name: string; plural_name?: string | null; desc
 export type Food = { id: number; name: string; plural_name?: string | null; description?: string | null; food_onhand: boolean };
 export type MealType = { id: number; name: string; order: number; color?: string; icon?: string | null };
 
+/** The shape a keyword takes nested inside a recipe *list* result
+ *  (`/api/recipe/`) — confirmed against a real instance to carry only
+ *  `id`/`label`, not the full `Keyword` shape `/api/recipe/{id}/` embeds. */
+export type KeywordRef = { id: number; label: string };
+
 export type RecipeSummary = {
     id: number;
     name: string;
     description?: string | null;
     rating?: number | null;
     servings?: number | null;
-    keywords: Keyword[];
+    keywords: KeywordRef[];
 };
 
 export type StepIngredient = {
@@ -26,7 +31,8 @@ export type StepIngredient = {
 
 export type Step = { id: number; name: string; instruction: string; ingredients: StepIngredient[]; order: number };
 
-export type Recipe = RecipeSummary & {
+export type Recipe = Omit<RecipeSummary, 'keywords'> & {
+    keywords: Keyword[];
     steps: Step[];
     working_time?: number | null;
     waiting_time?: number | null;
