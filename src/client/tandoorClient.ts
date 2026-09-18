@@ -1,5 +1,5 @@
 import { TandoorHttp } from '../core/http.ts';
-import type { CookLog, CreateRecipeRequest, Food, Keyword, MealPlan, MealType, PaginatedResponse, Recipe, RecipeSummary, ShoppingListEntry, Unit } from './types.ts';
+import type { CookLog, CreateMealPlanRequest, CreateRecipeRequest, Food, Keyword, MealPlan, MealType, PaginatedResponse, Recipe, RecipeSummary, ShoppingListEntry, Unit } from './types.ts';
 
 export class TandoorClient {
     readonly #http: TandoorHttp;
@@ -95,5 +95,9 @@ export class TandoorClient {
 
     async createRecipe(payload: CreateRecipeRequest): Promise<Recipe> {
         return this.#http.post('/api/recipe/', payload);
+    }
+
+    async createMealPlan(payload: CreateMealPlanRequest): Promise<MealPlan> {
+        return this.#http.post('/api/meal-plan/', payload);
     }
 }

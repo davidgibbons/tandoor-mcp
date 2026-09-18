@@ -81,3 +81,5 @@ export type CreateRecipeRequest = {
     keywords: { name: string }[];
     steps: CreateStepRequest[];
 };
+
+export type CreateMealPlanRequest = { recipe: number | null; title: string | null; servings: number; date: string; meal_type: number; note: string | null };

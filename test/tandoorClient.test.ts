@@ -153,3 +153,12 @@ describe('TandoorClient.createRecipe', () => {
         expect(recipe.id).toBe(5);
     });
 });
+
+describe('TandoorClient.createMealPlan', () => {
+    it('posts to /api/meal-plan/', async () => {
+        const fetchImpl = serving({ '/api/meal-plan/': { id: 1, title: null, recipe: { id: 1, name: 'Pasta', keywords: [] }, servings: 2, note: null, date: '2026-01-01', meal_type: { id: 1, name: 'Dinner', order: 1 } } });
+        const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
+        const plan = await client.createMealPlan({ recipe: 1, title: null, servings: 2, date: '2026-01-01', meal_type: 1, note: null });
+        expect(plan.id).toBe(1);
+    });
+});
