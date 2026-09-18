@@ -1,0 +1,35 @@
+name: OpenAPI drift check
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Re-fetch the spec
+        env:
+          TANDOOR_URL: ${{ secrets.TANDOOR_URL }}
+        run: npm run specs:fetch
+      - run: npm run codegen
+      - run: npm run typecheck
+      - run: npm test -- test/contract.test.ts
+      - name: Open a PR if the spec changed
+        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7.0.11
+        with:
+          commit-message: 'chore: refresh vendored Tandoor OpenAPI spec'
+          title: 'Tandoor API drift detected'
+          branch: openapi-drift
+          delete-branch: true

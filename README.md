@@ -19,3 +19,11 @@ npm install
 npm run build
 TANDOOR_MCP_CONFIG_DIR=./config node dist/src/index.js
 ```
+
+## Maintainer setup
+
+The [OpenAPI drift workflow](.github/workflows/openapi-drift.yml) needs a
+`TANDOOR_URL` repository secret pointing at a real Tandoor instance reachable
+from GitHub Actions runners. This is a maintainer-only prerequisite — a
+contributor's `npm test` never needs it, since it runs against recorded
+fixtures. See [CONTRIBUTING.md](CONTRIBUTING.md).
