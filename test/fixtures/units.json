@@ -1,0 +1,408 @@
+{
+  "count": 136,
+  "next": "https://recipes.pureroot.com/api/unit/?page=2&page_size=50",
+  "previous": null,
+  "timestamp": "2026-09-18T01:46:32.659866+00:00",
+  "results": [
+    {
+      "id": 121,
+      "name": "14",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 123,
+      "name": "14-",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 88,
+      "name": "(14.5",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 104,
+      "name": "14-ounce",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 32,
+      "name": "(15",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 78,
+      "name": "(2",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 94,
+      "name": "20",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 96,
+      "name": "(28",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 58,
+      "name": "3½-",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 85,
+      "name": "3-pound",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 115,
+      "name": "(6",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 70,
+      "name": "6-pound",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 81,
+      "name": "(8-oz.)",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 35,
+      "name": "anchovy",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 10,
+      "name": "baby",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 92,
+      "name": "bacon",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 66,
+      "name": "Basil",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 41,
+      "name": "bay",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 63,
+      "name": "Bay",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 109,
+      "name": "beef",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 75,
+      "name": "Bell",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 44,
+      "name": "bell",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 127,
+      "name": "birds",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 54,
+      "name": "boneless",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 106,
+      "name": "bottle",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 130,
+      "name": "Bottle",
+      "plural_name": "Bottles",
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": "unit-bottle"
+    },
+    {
+      "id": 118,
+      "name": "bottles",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 136,
+      "name": "Bourbon",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 103,
+      "name": "bunch",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 98,
+      "name": "butterflied/thin",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 47,
+      "name": "c.",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 93,
+      "name": "cabbage",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 17,
+      "name": "can",
+      "plural_name": "cans",
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": "unit-can"
+    },
+    {
+      "id": 14,
+      "name": "cans",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 129,
+      "name": "celery",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 83,
+      "name": "cherry",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 20,
+      "name": "chicken",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 73,
+      "name": "Chicken",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 108,
+      "name": "chopped",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 119,
+      "name": "cinnamon",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 36,
+      "name": "clove",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 34,
+      "name": "cloved",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 12,
+      "name": "cloves",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 74,
+      "name": "Cloves",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 107,
+      "name": "container",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 4,
+      "name": "cup",
+      "plural_name": "cups",
+      "description": null,
+      "base_unit": "us_cup",
+      "open_data_slug": "unit-c"
+    },
+    {
+      "id": 52,
+      "name": "Cup",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 16,
+      "name": "cups",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 56,
+      "name": "dash",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    },
+    {
+      "id": 101,
+      "name": "ears",
+      "plural_name": null,
+      "description": null,
+      "base_unit": null,
+      "open_data_slug": null
+    }
+  ]
+}

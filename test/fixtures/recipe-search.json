@@ -1,0 +1,122 @@
+{
+  "count": 96,
+  "next": "https://recipes.pureroot.com/api/recipe/?page=2&page_size=5",
+  "previous": null,
+  "results": [
+    {
+      "id": 1,
+      "name": "20-Minute Chinese Garlic Green Beans",
+      "description": "",
+      "image": "https://recipes.pureroot.com/media/recipes/9561f946-d700-4ba9-9f88-5fc96f40e3aa_1.jpeg",
+      "keywords": [
+        {
+          "id": 3,
+          "label": "Sides"
+        }
+      ],
+      "working_time": 10,
+      "waiting_time": 10,
+      "created_at": "2026-08-10T10:07:16.383166-07:00",
+      "updated_at": "2026-08-10T10:07:16.787637-07:00",
+      "internal": true,
+      "private": false,
+      "servings": 6,
+      "servings_text": "",
+      "rating": null,
+      "last_cooked": null,
+      "new": false
+    },
+    {
+      "id": 2,
+      "name": "30 Minute Creamy Thai Turmeric Chicken and Noodles.",
+      "description": "",
+      "image": "https://recipes.pureroot.com/media/recipes/a3fd23c7-ebc5-41bf-87b1-3d052355032d_2.jpeg",
+      "keywords": [
+        {
+          "id": 6,
+          "label": "Entree"
+        }
+      ],
+      "working_time": 15,
+      "waiting_time": 15,
+      "created_at": "2026-08-10T10:07:16.803294-07:00",
+      "updated_at": "2026-08-17T17:22:51.813561-07:00",
+      "internal": true,
+      "private": false,
+      "servings": 6,
+      "servings_text": "Servings",
+      "rating": null,
+      "last_cooked": null,
+      "new": false
+    },
+    {
+      "id": 3,
+      "name": "Ahi Tuna Poke",
+      "description": "",
+      "image": null,
+      "keywords": [
+        {
+          "id": 6,
+          "label": "Entree"
+        }
+      ],
+      "working_time": 15,
+      "waiting_time": 24,
+      "created_at": "2026-08-10T10:07:17.208269-07:00",
+      "updated_at": "2026-08-17T17:23:33.605036-07:00",
+      "internal": true,
+      "private": false,
+      "servings": 4,
+      "servings_text": "",
+      "rating": null,
+      "last_cooked": null,
+      "new": false
+    },
+    {
+      "id": 4,
+      "name": "Amaretto Fudge",
+      "description": "",
+      "image": "https://recipes.pureroot.com/media/recipes/775c34b5-3d13-4520-8f9b-60f5cef886dc_4.jpeg",
+      "keywords": [
+        {
+          "id": 4,
+          "label": "Desserts"
+        }
+      ],
+      "working_time": 0,
+      "waiting_time": 0,
+      "created_at": "2026-08-10T10:07:17.390767-07:00",
+      "updated_at": "2026-08-10T10:07:17.705697-07:00",
+      "internal": true,
+      "private": false,
+      "servings": 36,
+      "servings_text": "pieces",
+      "rating": null,
+      "last_cooked": null,
+      "new": false
+    },
+    {
+      "id": 5,
+      "name": "Avocado Cauliflower Rice",
+      "description": "",
+      "image": null,
+      "keywords": [
+        {
+          "id": 3,
+          "label": "Sides"
+        }
+      ],
+      "working_time": 5,
+      "waiting_time": 15,
+      "created_at": "2026-08-10T10:07:17.721936-07:00",
+      "updated_at": "2026-08-17T17:23:33.933229-07:00",
+      "internal": true,
+      "private": false,
+      "servings": 6,
+      "servings_text": "Servings",
+      "rating": null,
+      "last_cooked": null,
+      "new": false
+    }
+  ]
+}

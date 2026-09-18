@@ -1,0 +1,107 @@
+{
+  "count": 9,
+  "next": null,
+  "previous": null,
+  "timestamp": "2026-09-18T01:46:32.641802+00:00",
+  "results": [
+    {
+      "id": 10,
+      "name": "Appetizers",
+      "label": "Appetizers",
+      "description": "",
+      "parent": null,
+      "numchild": 0,
+      "created_at": "2026-08-17T17:22:37.570576-07:00",
+      "updated_at": "2026-08-17T17:24:15.094465-07:00",
+      "full_name": "Appetizers"
+    },
+    {
+      "id": 7,
+      "name": "Breakfast",
+      "label": "Breakfast",
+      "description": "",
+      "parent": null,
+      "numchild": 0,
+      "created_at": "2026-08-10T10:08:14.935253-07:00",
+      "updated_at": "2026-08-10T10:08:14.935263-07:00",
+      "full_name": "Breakfast"
+    },
+    {
+      "id": 5,
+      "name": "Cocktails",
+      "label": "Cocktails",
+      "description": "",
+      "parent": null,
+      "numchild": 0,
+      "created_at": "2026-08-10T10:07:20.046807-07:00",
+      "updated_at": "2026-08-25T16:20:12.138242-07:00",
+      "full_name": "Cocktails"
+    },
+    {
+      "id": 4,
+      "name": "Desserts",
+      "label": "Desserts",
+      "description": "",
+      "parent": null,
+      "numchild": 0,
+      "created_at": "2026-08-10T10:07:17.428586-07:00",
+      "updated_at": "2026-08-17T17:24:14.364295-07:00",
+      "full_name": "Desserts"
+    },
+    {
+      "id": 6,
+      "name": "Entree",
+      "label": "Entree",
+      "description": "",
+      "parent": null,
+      "numchild": 0,
+      "created_at": "2026-08-10T10:07:28.038327-07:00",
+      "updated_at": "2026-08-17T17:24:15.444247-07:00",
+      "full_name": "Entree"
+    },
+    {
+      "id": 9,
+      "name": "Salads",
+      "label": "Salads",
+      "description": "",
+      "parent": null,
+      "numchild": 0,
+      "created_at": "2026-08-17T17:22:37.309981-07:00",
+      "updated_at": "2026-08-17T17:24:15.807924-07:00",
+      "full_name": "Salads"
+    },
+    {
+      "id": 11,
+      "name": "Sauces",
+      "label": "Sauces",
+      "description": "",
+      "parent": null,
+      "numchild": 0,
+      "created_at": "2026-08-17T17:22:37.804895-07:00",
+      "updated_at": "2026-08-17T17:23:54.315538-07:00",
+      "full_name": "Sauces"
+    },
+    {
+      "id": 3,
+      "name": "Sides",
+      "label": "Sides",
+      "description": "",
+      "parent": null,
+      "numchild": 0,
+      "created_at": "2026-08-10T10:07:16.422606-07:00",
+      "updated_at": "2026-08-17T17:52:37.250609-07:00",
+      "full_name": "Sides"
+    },
+    {
+      "id": 8,
+      "name": "Soups",
+      "label": "Soups",
+      "description": "",
+      "parent": null,
+      "numchild": 0,
+      "created_at": "2026-08-10T10:08:18.129639-07:00",
+      "updated_at": "2026-08-17T17:52:37.476014-07:00",
+      "full_name": "Soups"
+    }
+  ]
+}

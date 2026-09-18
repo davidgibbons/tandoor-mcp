@@ -1,0 +1,15 @@
+{
+  "count": 1,
+  "next": null,
+  "previous": null,
+  "timestamp": "2026-09-18T01:46:32.927163+00:00",
+  "results": [
+    {
+      "id": 1,
+      "name": "Dinner",
+      "order": 0,
+      "time": null,
+      "color": null
+    }
+  ]
+}

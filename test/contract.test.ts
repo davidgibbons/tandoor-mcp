@@ -116,16 +116,32 @@ const CONTRACTS: Record<string, ServiceContract> = {
     }
 };
 
-// No live Tandoor instance was available while this project was built, so no
-// fixtures were captured (see scripts/capture-fixtures.ts) and no spec was
-// vendored (see scripts/fetch-specs.sh). These tests skip rather than fail
-// until a maintainer runs both against a real instance — see CONTRIBUTING.md.
+// specs/tandoor.json was not captured: this instance's /api/schema/ redirects
+// to a session-auth login page rather than accepting the bearer token, so
+// scripts/fetch-specs.sh cannot fetch it non-interactively (matching the
+// no-published-spec fallback the plan anticipated for self-hosted
+// deployments). The spec-declares-field assertions below skip until a
+// maintainer captures one manually (e.g. exporting it from a logged-in
+// browser session) — see CONTRIBUTING.md.
+//
+// meal-plan, shopping-list, and cook-log were captured but empty (0 results)
+// on the instance used to capture them — this Tandoor has no meal plan
+// entries, shopping list entries, or cook log entries yet. An empty fixture
+// cannot contract-test the fields that endpoint would carry, so those three
+// fixture-field checks skip too, until someone adds at least one of each on
+// the instance and recaptures.
+function fixtureIsEmpty(fixture: unknown): boolean {
+    if (Array.isArray(fixture)) return fixture.length === 0;
+    const results = (fixture as Record<string, unknown> | null)?.results;
+    return Array.isArray(results) && results.length === 0;
+}
+
 describe('adapter contracts', () => {
     for (const [service, contract] of Object.entries(CONTRACTS)) {
         describe(service, () => {
             for (const dep of contract.dependencies) {
                 const label = dep.path ?? dep.fixture.split('/').pop();
-                const fixtureTest = exists(dep.fixture) ? it : it.skip;
+                const fixtureTest = exists(dep.fixture) && !fixtureIsEmpty(read(dep.fixture)) ? it : it.skip;
 
                 fixtureTest(`${label} still returns the fields tools read`, () => {
                     const fixture = read(dep.fixture);

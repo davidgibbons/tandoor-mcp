@@ -1,0 +1,1126 @@
+{
+  "id": 1,
+  "name": "20-Minute Chinese Garlic Green Beans",
+  "description": "",
+  "image": "https://recipes.pureroot.com/media/recipes/9561f946-d700-4ba9-9f88-5fc96f40e3aa_1.jpeg",
+  "keywords": [
+    {
+      "id": 3,
+      "name": "Sides",
+      "label": "Sides",
+      "description": "",
+      "parent": null,
+      "numchild": 0,
+      "created_at": "2026-08-10T10:07:16.422606-07:00",
+      "updated_at": "2026-08-17T17:52:37.250609-07:00",
+      "full_name": "Sides"
+    }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "name": "",
+      "instruction": "In a small bowl, combine the soy sauce, oyster sauce, rice vinegar, sugar, and sesame seeds. Set aside.\n\nHeat a wok or large skillet over medium-high heat and add the sesame seed oil. Once hot, saute the sliced garlic until slightly golden brown (be careful not to burn them). Add the sliced red onion and green beans. Cook until the beans are crisp-tender, about 6-7 minutes.\n\nPour in the sauce and simmer for 2-3 minutes. Be careful not to overcook the green beans.\n\n### Nutritional Information \nCalories: 77kcal | Carbohydrates: 11g | Protein: 2g | Fat: 3g | Saturated Fat: 0.5g | Polyunsaturated Fat: 0.5g | Monounsaturated Fat: 0.3g | Sodium: 246mg | Potassium: 201mg | Fiber: 2.5g | Sugar: 5.5g | Vitamin C: 18mg | Calcium: 4mg | Iron: 5mg\n\n### Source \nTastilly.com \nhttps://tastilly.com/stir-fried-garlic-green-beans/#recipe",
+      "ingredients": [
+        {
+          "id": 1,
+          "food": {
+            "id": 1,
+            "name": "reduced-sodium soy sauce",
+            "plural_name": null,
+            "description": "",
+            "recipe": null,
+            "url": "",
+            "properties": [],
+            "properties_food_amount": 100,
+            "properties_food_unit": null,
+            "fdc_id": null,
+            "food_onhand": false,
+            "supermarket_category": null,
+            "parent": null,
+            "numchild": 0,
+            "inherit_fields": [],
+            "full_name": "reduced-sodium soy sauce",
+            "ignore_shopping": false,
+            "substitute": [],
+            "substitute_siblings": false,
+            "substitute_children": false,
+            "substitute_onhand": false,
+            "child_inherit_fields": [],
+            "open_data_slug": null,
+            "shopping_lists": []
+          },
+          "unit": {
+            "id": 1,
+            "name": "tbsp",
+            "plural_name": "tbsps",
+            "description": null,
+            "base_unit": "tbsp",
+            "open_data_slug": "unit-tbsp"
+          },
+          "amount": 1,
+          "conversions": [
+            {
+              "food": "reduced-sodium soy sauce",
+              "unit": "tbsp",
+              "amount": 1
+            },
+            {
+              "food": "reduced-sodium soy sauce",
+              "unit": "cup",
+              "amount": 0.0625
+            },
+            {
+              "food": "reduced-sodium soy sauce",
+              "unit": "fl oz",
+              "amount": 0.5
+            },
+            {
+              "food": "reduced-sodium soy sauce",
+              "unit": "l",
+              "amount": 0.014786774708700538
+            },
+            {
+              "food": "reduced-sodium soy sauce",
+              "unit": "ml",
+              "amount": 14.78677470870054
+            },
+            {
+              "food": "reduced-sodium soy sauce",
+              "unit": "pinch",
+              "amount": 14.78677470870054
+            },
+            {
+              "food": "reduced-sodium soy sauce",
+              "unit": "tsp",
+              "amount": 2.9999999999999996
+            }
+          ],
+          "note": "",
+          "order": 0,
+          "is_header": false,
+          "no_amount": false,
+          "original_text": "1 tbsp reduced-sodium soy sauce",
+          "used_in_recipes": [
+            {
+              "id": 1,
+              "name": "20-Minute Chinese Garlic Green Beans"
+            }
+          ],
+          "checked": false
+        },
+        {
+          "id": 2,
+          "food": {
+            "id": 2,
+            "name": "oyster sauce",
+            "plural_name": null,
+            "description": "",
+            "recipe": null,
+            "url": "",
+            "properties": [],
+            "properties_food_amount": 100,
+            "properties_food_unit": null,
+            "fdc_id": null,
+            "food_onhand": false,
+            "supermarket_category": null,
+            "parent": null,
+            "numchild": 0,
+            "inherit_fields": [],
+            "full_name": "oyster sauce",
+            "ignore_shopping": false,
+            "substitute": [],
+            "substitute_siblings": false,
+            "substitute_children": false,
+            "substitute_onhand": false,
+            "child_inherit_fields": [],
+            "open_data_slug": null,
+            "shopping_lists": []
+          },
+          "unit": {
+            "id": 1,
+            "name": "tbsp",
+            "plural_name": "tbsps",
+            "description": null,
+            "base_unit": "tbsp",
+            "open_data_slug": "unit-tbsp"
+          },
+          "amount": 2,
+          "conversions": [
+            {
+              "food": "oyster sauce",
+              "unit": "tbsp",
+              "amount": 2
+            },
+            {
+              "food": "oyster sauce",
+              "unit": "cup",
+              "amount": 0.125
+            },
+            {
+              "food": "oyster sauce",
+              "unit": "fl oz",
+              "amount": 1
+            },
+            {
+              "food": "oyster sauce",
+              "unit": "l",
+              "amount": 0.029573549417401077
+            },
+            {
+              "food": "oyster sauce",
+              "unit": "ml",
+              "amount": 29.57354941740108
+            },
+            {
+              "food": "oyster sauce",
+              "unit": "pinch",
+              "amount": 29.57354941740108
+            },
+            {
+              "food": "oyster sauce",
+              "unit": "tsp",
+              "amount": 5.999999999999999
+            }
+          ],
+          "note": "",
+          "order": 0,
+          "is_header": false,
+          "no_amount": false,
+          "original_text": "2 tbsp oyster sauce",
+          "used_in_recipes": [
+            {
+              "id": 1,
+              "name": "20-Minute Chinese Garlic Green Beans"
+            }
+          ],
+          "checked": false
+        },
+        {
+          "id": 3,
+          "food": {
+            "id": 3,
+            "name": "rice vinegar",
+            "plural_name": null,
+            "description": "",
+            "recipe": null,
+            "url": "",
+            "properties": [],
+            "properties_food_amount": 100,
+            "properties_food_unit": null,
+            "fdc_id": null,
+            "food_onhand": false,
+            "supermarket_category": null,
+            "parent": null,
+            "numchild": 0,
+            "inherit_fields": [],
+            "full_name": "rice vinegar",
+            "ignore_shopping": false,
+            "substitute": [],
+            "substitute_siblings": false,
+            "substitute_children": false,
+            "substitute_onhand": false,
+            "child_inherit_fields": [],
+            "open_data_slug": null,
+            "shopping_lists": []
+          },
+          "unit": {
+            "id": 2,
+            "name": "tsp",
+            "plural_name": "tsps",
+            "description": null,
+            "base_unit": "tsp",
+            "open_data_slug": "unit-tsp"
+          },
+          "amount": 1.5,
+          "conversions": [
+            {
+              "food": "rice vinegar",
+              "unit": "tsp",
+              "amount": 1.5
+            },
+            {
+              "food": "rice vinegar",
+              "unit": "cup",
+              "amount": 0.03125
+            },
+            {
+              "food": "rice vinegar",
+              "unit": "fl oz",
+              "amount": 0.25
+            },
+            {
+              "food": "rice vinegar",
+              "unit": "l",
+              "amount": 0.00739338735435027
+            },
+            {
+              "food": "rice vinegar",
+              "unit": "ml",
+              "amount": 7.39338735435027
+            },
+            {
+              "food": "rice vinegar",
+              "unit": "pinch",
+              "amount": 7.39338735435027
+            },
+            {
+              "food": "rice vinegar",
+              "unit": "tbsp",
+              "amount": 0.5
+            }
+          ],
+          "note": "",
+          "order": 0,
+          "is_header": false,
+          "no_amount": false,
+          "original_text": "1 ½ tsp rice vinegar",
+          "used_in_recipes": [
+            {
+              "id": 1,
+              "name": "20-Minute Chinese Garlic Green Beans"
+            }
+          ],
+          "checked": false
+        },
+        {
+          "id": 4,
+          "food": {
+            "id": 4,
+            "name": "sugar",
+            "plural_name": null,
+            "description": "",
+            "recipe": null,
+            "url": "",
+            "properties": [],
+            "properties_food_amount": 100,
+            "properties_food_unit": null,
+            "fdc_id": null,
+            "food_onhand": false,
+            "supermarket_category": null,
+            "parent": null,
+            "numchild": 0,
+            "inherit_fields": [],
+            "full_name": "sugar",
+            "ignore_shopping": false,
+            "substitute": [],
+            "substitute_siblings": false,
+            "substitute_children": false,
+            "substitute_onhand": false,
+            "child_inherit_fields": [],
+            "open_data_slug": null,
+            "shopping_lists": []
+          },
+          "unit": {
+            "id": 1,
+            "name": "tbsp",
+            "plural_name": "tbsps",
+            "description": null,
+            "base_unit": "tbsp",
+            "open_data_slug": "unit-tbsp"
+          },
+          "amount": 1,
+          "conversions": [
+            {
+              "food": "sugar",
+              "unit": "tbsp",
+              "amount": 1
+            },
+            {
+              "food": "sugar",
+              "unit": "cup",
+              "amount": 0.0625
+            },
+            {
+              "food": "sugar",
+              "unit": "fl oz",
+              "amount": 0.5
+            },
+            {
+              "food": "sugar",
+              "unit": "l",
+              "amount": 0.014786774708700538
+            },
+            {
+              "food": "sugar",
+              "unit": "ml",
+              "amount": 14.78677470870054
+            },
+            {
+              "food": "sugar",
+              "unit": "pinch",
+              "amount": 14.78677470870054
+            },
+            {
+              "food": "sugar",
+              "unit": "tsp",
+              "amount": 2.9999999999999996
+            }
+          ],
+          "note": "",
+          "order": 0,
+          "is_header": false,
+          "no_amount": false,
+          "original_text": "1 tbsp sugar",
+          "used_in_recipes": [
+            {
+              "id": 1,
+              "name": "20-Minute Chinese Garlic Green Beans"
+            }
+          ],
+          "checked": false
+        },
+        {
+          "id": 5,
+          "food": {
+            "id": 5,
+            "name": "sesame seeds",
+            "plural_name": null,
+            "description": "",
+            "recipe": null,
+            "url": "",
+            "properties": [],
+            "properties_food_amount": 100,
+            "properties_food_unit": null,
+            "fdc_id": null,
+            "food_onhand": false,
+            "supermarket_category": null,
+            "parent": null,
+            "numchild": 0,
+            "inherit_fields": [],
+            "full_name": "sesame seeds",
+            "ignore_shopping": false,
+            "substitute": [],
+            "substitute_siblings": false,
+            "substitute_children": false,
+            "substitute_onhand": false,
+            "child_inherit_fields": [],
+            "open_data_slug": null,
+            "shopping_lists": []
+          },
+          "unit": {
+            "id": 1,
+            "name": "tbsp",
+            "plural_name": "tbsps",
+            "description": null,
+            "base_unit": "tbsp",
+            "open_data_slug": "unit-tbsp"
+          },
+          "amount": 1,
+          "conversions": [
+            {
+              "food": "sesame seeds",
+              "unit": "tbsp",
+              "amount": 1
+            },
+            {
+              "food": "sesame seeds",
+              "unit": "cup",
+              "amount": 0.0625
+            },
+            {
+              "food": "sesame seeds",
+              "unit": "fl oz",
+              "amount": 0.5
+            },
+            {
+              "food": "sesame seeds",
+              "unit": "l",
+              "amount": 0.014786774708700538
+            },
+            {
+              "food": "sesame seeds",
+              "unit": "ml",
+              "amount": 14.78677470870054
+            },
+            {
+              "food": "sesame seeds",
+              "unit": "pinch",
+              "amount": 14.78677470870054
+            },
+            {
+              "food": "sesame seeds",
+              "unit": "tsp",
+              "amount": 2.9999999999999996
+            }
+          ],
+          "note": "",
+          "order": 0,
+          "is_header": false,
+          "no_amount": false,
+          "original_text": "1 tbsp sesame seeds",
+          "used_in_recipes": [
+            {
+              "id": 1,
+              "name": "20-Minute Chinese Garlic Green Beans"
+            }
+          ],
+          "checked": false
+        },
+        {
+          "id": 6,
+          "food": {
+            "id": 6,
+            "name": "sesame seed oil",
+            "plural_name": null,
+            "description": "",
+            "recipe": null,
+            "url": "",
+            "properties": [],
+            "properties_food_amount": 100,
+            "properties_food_unit": null,
+            "fdc_id": null,
+            "food_onhand": false,
+            "supermarket_category": null,
+            "parent": null,
+            "numchild": 0,
+            "inherit_fields": [],
+            "full_name": "sesame seed oil",
+            "ignore_shopping": false,
+            "substitute": [],
+            "substitute_siblings": false,
+            "substitute_children": false,
+            "substitute_onhand": false,
+            "child_inherit_fields": [],
+            "open_data_slug": null,
+            "shopping_lists": []
+          },
+          "unit": {
+            "id": 1,
+            "name": "tbsp",
+            "plural_name": "tbsps",
+            "description": null,
+            "base_unit": "tbsp",
+            "open_data_slug": "unit-tbsp"
+          },
+          "amount": 1,
+          "conversions": [
+            {
+              "food": "sesame seed oil",
+              "unit": "tbsp",
+              "amount": 1
+            },
+            {
+              "food": "sesame seed oil",
+              "unit": "cup",
+              "amount": 0.0625
+            },
+            {
+              "food": "sesame seed oil",
+              "unit": "fl oz",
+              "amount": 0.5
+            },
+            {
+              "food": "sesame seed oil",
+              "unit": "l",
+              "amount": 0.014786774708700538
+            },
+            {
+              "food": "sesame seed oil",
+              "unit": "ml",
+              "amount": 14.78677470870054
+            },
+            {
+              "food": "sesame seed oil",
+              "unit": "pinch",
+              "amount": 14.78677470870054
+            },
+            {
+              "food": "sesame seed oil",
+              "unit": "tsp",
+              "amount": 2.9999999999999996
+            }
+          ],
+          "note": "",
+          "order": 0,
+          "is_header": false,
+          "no_amount": false,
+          "original_text": "1 tbsp sesame seed oil",
+          "used_in_recipes": [
+            {
+              "id": 1,
+              "name": "20-Minute Chinese Garlic Green Beans"
+            }
+          ],
+          "checked": false
+        },
+        {
+          "id": 7,
+          "food": {
+            "id": 7,
+            "name": "cloves",
+            "plural_name": null,
+            "description": "",
+            "recipe": null,
+            "url": "",
+            "properties": [],
+            "properties_food_amount": 100,
+            "properties_food_unit": null,
+            "fdc_id": null,
+            "food_onhand": false,
+            "supermarket_category": null,
+            "parent": null,
+            "numchild": 0,
+            "inherit_fields": [],
+            "full_name": "cloves",
+            "ignore_shopping": false,
+            "substitute": [],
+            "substitute_siblings": false,
+            "substitute_children": false,
+            "substitute_onhand": false,
+            "child_inherit_fields": [],
+            "open_data_slug": null,
+            "shopping_lists": []
+          },
+          "unit": {
+            "id": 3,
+            "name": "garlic",
+            "plural_name": null,
+            "description": null,
+            "base_unit": null,
+            "open_data_slug": null
+          },
+          "amount": 3,
+          "conversions": [
+            {
+              "food": "cloves",
+              "unit": "garlic",
+              "amount": 3
+            }
+          ],
+          "note": "thinly sliced",
+          "order": 0,
+          "is_header": false,
+          "no_amount": false,
+          "original_text": "3 garlic cloves, thinly sliced",
+          "used_in_recipes": [
+            {
+              "id": 1,
+              "name": "20-Minute Chinese Garlic Green Beans"
+            }
+          ],
+          "checked": false
+        },
+        {
+          "id": 8,
+          "food": {
+            "id": 8,
+            "name": "red onion",
+            "plural_name": null,
+            "description": "",
+            "recipe": null,
+            "url": "",
+            "properties": [],
+            "properties_food_amount": 100,
+            "properties_food_unit": null,
+            "fdc_id": null,
+            "food_onhand": false,
+            "supermarket_category": null,
+            "parent": null,
+            "numchild": 0,
+            "inherit_fields": [],
+            "full_name": "red onion",
+            "ignore_shopping": false,
+            "substitute": [],
+            "substitute_siblings": false,
+            "substitute_children": false,
+            "substitute_onhand": false,
+            "child_inherit_fields": [],
+            "open_data_slug": null,
+            "shopping_lists": []
+          },
+          "unit": {
+            "id": 4,
+            "name": "cup",
+            "plural_name": "cups",
+            "description": null,
+            "base_unit": "us_cup",
+            "open_data_slug": "unit-c"
+          },
+          "amount": 1,
+          "conversions": [
+            {
+              "food": "red onion",
+              "unit": "cup",
+              "amount": 1
+            },
+            {
+              "food": "red onion",
+              "unit": "fl oz",
+              "amount": 8
+            },
+            {
+              "food": "red onion",
+              "unit": "l",
+              "amount": 0.2365883953392086
+            },
+            {
+              "food": "red onion",
+              "unit": "ml",
+              "amount": 236.58839533920863
+            },
+            {
+              "food": "red onion",
+              "unit": "pinch",
+              "amount": 236.58839533920863
+            },
+            {
+              "food": "red onion",
+              "unit": "tbsp",
+              "amount": 16
+            },
+            {
+              "food": "red onion",
+              "unit": "tsp",
+              "amount": 47.99999999999999
+            }
+          ],
+          "note": "thinly sliced",
+          "order": 0,
+          "is_header": false,
+          "no_amount": false,
+          "original_text": "1 cup red onion, thinly sliced",
+          "used_in_recipes": [
+            {
+              "id": 1,
+              "name": "20-Minute Chinese Garlic Green Beans"
+            }
+          ],
+          "checked": false
+        },
+        {
+          "id": 9,
+          "food": {
+            "id": 9,
+            "name": "fresh green beans",
+            "plural_name": null,
+            "description": "",
+            "recipe": null,
+            "url": "",
+            "properties": [],
+            "properties_food_amount": 100,
+            "properties_food_unit": null,
+            "fdc_id": null,
+            "food_onhand": false,
+            "supermarket_category": null,
+            "parent": null,
+            "numchild": 0,
+            "inherit_fields": [],
+            "full_name": "fresh green beans",
+            "ignore_shopping": false,
+            "substitute": [],
+            "substitute_siblings": false,
+            "substitute_children": false,
+            "substitute_onhand": false,
+            "child_inherit_fields": [],
+            "open_data_slug": null,
+            "shopping_lists": []
+          },
+          "unit": {
+            "id": 5,
+            "name": "lb",
+            "plural_name": "lbs",
+            "description": null,
+            "base_unit": "pound",
+            "open_data_slug": "unit-lbs"
+          },
+          "amount": 1,
+          "conversions": [
+            {
+              "food": "fresh green beans",
+              "unit": "lb",
+              "amount": 1
+            },
+            {
+              "food": "fresh green beans",
+              "unit": "g",
+              "amount": 453.5929094356397
+            },
+            {
+              "food": "fresh green beans",
+              "unit": "kg",
+              "amount": 0.45359290943563974
+            },
+            {
+              "food": "fresh green beans",
+              "unit": "oz",
+              "amount": 16.000036287432756
+            }
+          ],
+          "note": "washed and trimmed",
+          "order": 0,
+          "is_header": false,
+          "no_amount": false,
+          "original_text": "1 lb fresh green beans, washed and trimmed",
+          "used_in_recipes": [
+            {
+              "id": 1,
+              "name": "20-Minute Chinese Garlic Green Beans"
+            }
+          ],
+          "checked": false
+        }
+      ],
+      "instructions_markdown": "<p>In a small bowl, combine the soy sauce, oyster sauce, rice vinegar, sugar, and sesame seeds. Set aside.</p>\n<p>Heat a wok or large skillet over medium-high heat and add the sesame seed oil. Once hot, saute the sliced garlic until slightly golden brown (be careful not to burn them). Add the sliced red onion and green beans. Cook until the beans are crisp-tender, about 6-7 minutes.</p>\n<p>Pour in the sauce and simmer for 2-3 minutes. Be careful not to overcook the green beans.</p>\n<h3>Nutritional Information</h3>\n<p>Calories: 77kcal | Carbohydrates: 11g | Protein: 2g | Fat: 3g | Saturated Fat: 0.5g | Polyunsaturated Fat: 0.5g | Monounsaturated Fat: 0.3g | Sodium: 246mg | Potassium: 201mg | Fiber: 2.5g | Sugar: 5.5g | Vitamin C: 18mg | Calcium: 4mg | Iron: 5mg</p>\n<h3>Source</h3>\n<p><a href=\"http://Tastilly.com\">Tastilly.com</a> <br>\n<a href=\"https://tastilly.com/stir-fried-garlic-green-beans/#recipe\">https://tastilly.com/stir-fried-garlic-green-beans/#recipe</a></p>",
+      "time": 0,
+      "order": 0,
+      "show_as_header": true,
+      "file": null,
+      "step_recipe": null,
+      "step_recipe_data": null,
+      "show_ingredients_table": true
+    }
+  ],
+  "working_time": 10,
+  "waiting_time": 10,
+  "created_at": "2026-08-10T10:07:16.383166-07:00",
+  "updated_at": "2026-08-10T10:07:16.787637-07:00",
+  "source_url": null,
+  "internal": true,
+  "show_ingredient_overview": true,
+  "nutrition": null,
+  "properties": [],
+  "food_properties": {
+    "1": {
+      "id": 1,
+      "name": "Calories",
+      "description": null,
+      "unit": "kcal",
+      "order": 0,
+      "food_values": {
+        "1": {
+          "id": 1,
+          "food": {
+            "id": 1,
+            "name": "reduced-sodium soy sauce"
+          },
+          "value": null
+        },
+        "2": {
+          "id": 2,
+          "food": {
+            "id": 2,
+            "name": "oyster sauce"
+          },
+          "value": null
+        },
+        "3": {
+          "id": 3,
+          "food": {
+            "id": 3,
+            "name": "rice vinegar"
+          },
+          "value": null
+        },
+        "4": {
+          "id": 4,
+          "food": {
+            "id": 4,
+            "name": "sugar"
+          },
+          "value": null
+        },
+        "5": {
+          "id": 5,
+          "food": {
+            "id": 5,
+            "name": "sesame seeds"
+          },
+          "value": null
+        },
+        "6": {
+          "id": 6,
+          "food": {
+            "id": 6,
+            "name": "sesame seed oil"
+          },
+          "value": null
+        },
+        "7": {
+          "id": 7,
+          "food": {
+            "id": 7,
+            "name": "cloves"
+          },
+          "value": null
+        },
+        "8": {
+          "id": 8,
+          "food": {
+            "id": 8,
+            "name": "red onion"
+          },
+          "value": null
+        },
+        "9": {
+          "id": 9,
+          "food": {
+            "id": 9,
+            "name": "fresh green beans"
+          },
+          "value": null
+        }
+      },
+      "total_value": 0,
+      "missing_value": true
+    },
+    "2": {
+      "id": 2,
+      "name": "Proteins",
+      "description": null,
+      "unit": "g",
+      "order": 0,
+      "food_values": {
+        "1": {
+          "id": 1,
+          "food": {
+            "id": 1,
+            "name": "reduced-sodium soy sauce"
+          },
+          "value": null
+        },
+        "2": {
+          "id": 2,
+          "food": {
+            "id": 2,
+            "name": "oyster sauce"
+          },
+          "value": null
+        },
+        "3": {
+          "id": 3,
+          "food": {
+            "id": 3,
+            "name": "rice vinegar"
+          },
+          "value": null
+        },
+        "4": {
+          "id": 4,
+          "food": {
+            "id": 4,
+            "name": "sugar"
+          },
+          "value": null
+        },
+        "5": {
+          "id": 5,
+          "food": {
+            "id": 5,
+            "name": "sesame seeds"
+          },
+          "value": null
+        },
+        "6": {
+          "id": 6,
+          "food": {
+            "id": 6,
+            "name": "sesame seed oil"
+          },
+          "value": null
+        },
+        "7": {
+          "id": 7,
+          "food": {
+            "id": 7,
+            "name": "cloves"
+          },
+          "value": null
+        },
+        "8": {
+          "id": 8,
+          "food": {
+            "id": 8,
+            "name": "red onion"
+          },
+          "value": null
+        },
+        "9": {
+          "id": 9,
+          "food": {
+            "id": 9,
+            "name": "fresh green beans"
+          },
+          "value": null
+        }
+      },
+      "total_value": 0,
+      "missing_value": true
+    },
+    "3": {
+      "id": 3,
+      "name": "Fats",
+      "description": null,
+      "unit": "g",
+      "order": 0,
+      "food_values": {
+        "1": {
+          "id": 1,
+          "food": {
+            "id": 1,
+            "name": "reduced-sodium soy sauce"
+          },
+          "value": null
+        },
+        "2": {
+          "id": 2,
+          "food": {
+            "id": 2,
+            "name": "oyster sauce"
+          },
+          "value": null
+        },
+        "3": {
+          "id": 3,
+          "food": {
+            "id": 3,
+            "name": "rice vinegar"
+          },
+          "value": null
+        },
+        "4": {
+          "id": 4,
+          "food": {
+            "id": 4,
+            "name": "sugar"
+          },
+          "value": null
+        },
+        "5": {
+          "id": 5,
+          "food": {
+            "id": 5,
+            "name": "sesame seeds"
+          },
+          "value": null
+        },
+        "6": {
+          "id": 6,
+          "food": {
+            "id": 6,
+            "name": "sesame seed oil"
+          },
+          "value": null
+        },
+        "7": {
+          "id": 7,
+          "food": {
+            "id": 7,
+            "name": "cloves"
+          },
+          "value": null
+        },
+        "8": {
+          "id": 8,
+          "food": {
+            "id": 8,
+            "name": "red onion"
+          },
+          "value": null
+        },
+        "9": {
+          "id": 9,
+          "food": {
+            "id": 9,
+            "name": "fresh green beans"
+          },
+          "value": null
+        }
+      },
+      "total_value": 0,
+      "missing_value": true
+    },
+    "4": {
+      "id": 4,
+      "name": "Carbohydrates",
+      "description": null,
+      "unit": "g",
+      "order": 0,
+      "food_values": {
+        "1": {
+          "id": 1,
+          "food": {
+            "id": 1,
+            "name": "reduced-sodium soy sauce"
+          },
+          "value": null
+        },
+        "2": {
+          "id": 2,
+          "food": {
+            "id": 2,
+            "name": "oyster sauce"
+          },
+          "value": null
+        },
+        "3": {
+          "id": 3,
+          "food": {
+            "id": 3,
+            "name": "rice vinegar"
+          },
+          "value": null
+        },
+        "4": {
+          "id": 4,
+          "food": {
+            "id": 4,
+            "name": "sugar"
+          },
+          "value": null
+        },
+        "5": {
+          "id": 5,
+          "food": {
+            "id": 5,
+            "name": "sesame seeds"
+          },
+          "value": null
+        },
+        "6": {
+          "id": 6,
+          "food": {
+            "id": 6,
+            "name": "sesame seed oil"
+          },
+          "value": null
+        },
+        "7": {
+          "id": 7,
+          "food": {
+            "id": 7,
+            "name": "cloves"
+          },
+          "value": null
+        },
+        "8": {
+          "id": 8,
+          "food": {
+            "id": 8,
+            "name": "red onion"
+          },
+          "value": null
+        },
+        "9": {
+          "id": 9,
+          "food": {
+            "id": 9,
+            "name": "fresh green beans"
+          },
+          "value": null
+        }
+      },
+      "total_value": 0,
+      "missing_value": true
+    }
+  },
+  "servings": 6,
+  "file_path": "",
+  "servings_text": "",
+  "diameter": 0,
+  "diameter_text": "",
+  "rating": null,
+  "last_cooked": null,
+  "private": false,
+  "shared": []
+}
