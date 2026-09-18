@@ -3,7 +3,6 @@ node_modules
 dist
 coverage
 .vitest
-specs/*.json
 src/generated
 /config/
 config.yaml
