@@ -3,7 +3,7 @@
 ## Reporting a vulnerability
 
 Use GitHub's private reporting: **Security → Report a vulnerability** on
-[the repository](https://github.com/dgibbons/tandoor-mcp/security/advisories/new).
+[the repository](https://github.com/davidgibbons/tandoor-mcp/security/advisories/new).
 That opens a channel only you and I can read, which is what you want before
 anything is fixed.
 

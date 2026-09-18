@@ -7,7 +7,7 @@
   "description": "An MCP server for Tandoor Recipes.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dgibbons/tandoor-mcp.git"
+    "url": "git+https://github.com/davidgibbons/tandoor-mcp.git"
   },
   "engines": {
     "node": ">=24"

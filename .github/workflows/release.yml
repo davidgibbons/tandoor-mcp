@@ -45,7 +45,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@c299e40c65443455700f0fdfc63efafe5b349051 # v5.10.0
         with:
-          images: ghcr.io/dgibbons/tandoor-mcp
+          images: ghcr.io/davidgibbons/tandoor-mcp
           tags: |
             type=raw,value=main,enable=${{ needs.release-please.outputs.released != 'true' }}
             type=semver,pattern={{version}},value=${{ needs.release-please.outputs.version }},enable=${{ needs.release-please.outputs.released == 'true' }}

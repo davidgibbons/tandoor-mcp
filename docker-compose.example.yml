@@ -1,6 +1,6 @@
 services:
   tandoor-mcp:
-    image: ghcr.io/dgibbons/tandoor-mcp:latest
+    image: ghcr.io/davidgibbons/tandoor-mcp:latest
     restart: unless-stopped
     ports:
       - "6061:6061"

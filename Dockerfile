@@ -19,7 +19,7 @@ WORKDIR /app
 
 ARG TANDOOR_MCP_VERSION=0.0.0-dev
 
-LABEL io.modelcontextprotocol.server.name="io.github.dgibbons/tandoor-mcp"
+LABEL io.modelcontextprotocol.server.name="io.github.davidgibbons/tandoor-mcp"
 
 RUN apt-get update && apt-get install -y --no-install-recommends gosu wget \
     && rm -rf /var/lib/apt/lists/*
