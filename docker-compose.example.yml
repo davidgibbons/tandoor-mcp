@@ -1,0 +1,12 @@
+services:
+  tandoor-mcp:
+    image: ghcr.io/dgibbons/tandoor-mcp:latest
+    restart: unless-stopped
+    ports:
+      - "6061:6061"
+    volumes:
+      - ./config:/config
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      # TZ: America/New_York
