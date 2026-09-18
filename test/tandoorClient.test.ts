@@ -162,3 +162,25 @@ describe('TandoorClient.createMealPlan', () => {
         expect(plan.id).toBe(1);
     });
 });
+
+describe('TandoorClient shopping list writes', () => {
+    it('addShoppingListEntry posts food/unit/amount', async () => {
+        const fetchImpl = serving({ '/api/shopping-list-entry/': { id: 1, food: { id: 1, name: 'egg', food_onhand: false }, unit: null, amount: 6, checked: false } });
+        const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
+        const entry = await client.addShoppingListEntry({ food: { id: 1, name: 'egg' }, unit: null, amount: 6 });
+        expect(entry.id).toBe(1);
+    });
+
+    it('updateShoppingListEntry patches checked', async () => {
+        const fetchImpl = serving({ '/api/shopping-list-entry/1/': { id: 1, food: { id: 1, name: 'egg', food_onhand: false }, unit: null, amount: 6, checked: true } });
+        const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
+        const entry = await client.updateShoppingListEntry(1, { checked: true });
+        expect(entry.checked).toBe(true);
+    });
+
+    it('deleteShoppingListEntry deletes and returns nothing', async () => {
+        const fetchImpl = serving({ '/api/shopping-list-entry/1/': null });
+        const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
+        await expect(client.deleteShoppingListEntry(1)).resolves.toBeUndefined();
+    });
+});

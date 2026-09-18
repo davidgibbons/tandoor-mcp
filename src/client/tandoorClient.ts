@@ -100,4 +100,16 @@ export class TandoorClient {
     async createMealPlan(payload: CreateMealPlanRequest): Promise<MealPlan> {
         return this.#http.post('/api/meal-plan/', payload);
     }
+
+    async addShoppingListEntry(payload: { food: { id: number; name: string }; unit: { id: number; name: string } | null; amount: number }): Promise<ShoppingListEntry> {
+        return this.#http.post('/api/shopping-list-entry/', payload);
+    }
+
+    async updateShoppingListEntry(id: number, payload: { checked?: boolean }): Promise<ShoppingListEntry> {
+        return this.#http.patch(`/api/shopping-list-entry/${id}/`, payload);
+    }
+
+    async deleteShoppingListEntry(id: number): Promise<void> {
+        await this.#http.delete(`/api/shopping-list-entry/${id}/`);
+    }
 }
