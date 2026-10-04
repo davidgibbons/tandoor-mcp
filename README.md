@@ -22,12 +22,6 @@ TANDOOR_MCP_CONFIG_DIR=./config node dist/src/index.js
 
 ## Maintainer setup
 
-The [OpenAPI drift workflow](.github/workflows/openapi-drift.yml) needs a
-`TANDOOR_URL` repository secret pointing at a real Tandoor instance reachable
-from GitHub Actions runners. This is a maintainer-only prerequisite — a
-contributor's `npm test` never needs it, since it runs against recorded
-fixtures. See [CONTRIBUTING.md](CONTRIBUTING.md).
-
 Push to `main` over SSH (`git@github.com:davidgibbons/tandoor-mcp.git`), not
 HTTPS with a `GITHUB_TOKEN`-backed credential — a token without the
 `workflow` scope is rejected pushing any change under `.github/workflows/`.

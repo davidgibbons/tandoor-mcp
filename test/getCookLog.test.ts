@@ -21,14 +21,17 @@ describe('get_cook_log tool', () => {
 
     it('fences a free-text comment', async () => {
         const fetchImpl = serving({
-            '/api/cook-log/?recipe=1': { count: 1, next: null, previous: null, results: [{ id: 1, recipe: { id: 1, name: 'Pasta', keywords: [] }, servings: 2, rating: 5, comment: 'so <b>good</b>', created: '2026-01-02T00:00:00Z' }] }
+            '/api/cook-log/?recipe=1': { count: 1, next: null, previous: null, results: [{ id: 1, recipe: 1, servings: 2, rating: 5, comment: 'so <b>good</b>', created_at: '2026-01-02T00:00:00Z' }] },
+            '/api/recipe/1/': { id: 1, name: 'Pasta', keywords: [], steps: [] }
         });
         const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
         const server = new McpServer({ name: 'test', version: '0.0.0' }, { capabilities: { tools: {} } });
         registerGetCookLog(server, client);
         const result = await callTool(server, 'get_cook_log', { recipe_id: 1, days_back: 0 });
         expect(result.structuredContent).toBeDefined();
-        const items = (result.structuredContent as { items: Array<{ comment: string | null }> }).items;
+        const items = (result.structuredContent as { items: Array<{ comment: string | null; recipe_name: string; created: string }> }).items;
         expect(items[0]?.comment).toContain('tandoor.comment');
+        expect(items[0]?.recipe_name).toBe('Pasta');
+        expect(items[0]?.created).toBe('2026-01-02T00:00:00Z');
     });
 });

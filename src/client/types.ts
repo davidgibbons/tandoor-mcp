@@ -61,11 +61,11 @@ export type ShoppingListEntry = {
 
 export type CookLog = {
     id: number;
-    recipe: RecipeSummary;
+    recipe: number;
     servings: number;
     rating?: number | null;
     comment?: string | null;
-    created: string;
+    created_at: string;
 };
 
 export type CreateStepIngredientRequest = {
