@@ -16,7 +16,7 @@ describe('log_cooked_recipe tool', () => {
     it('reads the recipe name for the preview, then logs it once confirmed', async () => {
         const fetchImpl = serving({
             '/api/recipe/1/': { id: 1, name: 'Pasta', keywords: [], steps: [] },
-            '/api/cook-log/': { id: 1, recipe: { id: 1, name: 'Pasta', keywords: [] }, servings: 2, rating: 5, comment: null, created: '2026-01-01T00:00:00Z' }
+            '/api/cook-log/': { id: 1, recipe: 1, servings: 2, rating: 5, comment: null, created_at: '2026-01-01T00:00:00Z' }
         });
         const client = new TandoorClient('https://t.example', 'secret', 5000, fetchImpl);
         const server = new McpServer({ name: 'test', version: '0.0.0' }, { capabilities: { tools: {} } });

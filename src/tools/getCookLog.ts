@@ -29,18 +29,21 @@ export function registerGetCookLog(server: McpServer, client: TandoorClient): vo
             if (recipe_id !== undefined) opts.recipeId = recipe_id;
             if (days_back > 0) opts.fromDate = daysAgo(days_back);
             const response = await client.getCookLog(opts);
-            const projected = response.results.map(log => ({
+            const shaped = applyLimit(response.results, limit, offset);
+            // The cook log carries only the recipe id; resolve names for this page alone.
+            const ids = [...new Set(shaped.items.map(log => log.recipe))];
+            const names = new Map(await Promise.all(ids.map(async id => [id, (await client.getRecipe(id)).name] as const)));
+            const items = shaped.items.map(log => ({
                 id: log.id,
-                recipe_id: log.recipe.id,
-                recipe_name: log.recipe.name,
+                recipe_id: log.recipe,
+                recipe_name: names.get(log.recipe) ?? String(log.recipe),
                 servings: log.servings,
                 rating: log.rating ?? null,
                 comment: log.comment ? fenceText(log.comment, 'comment') : null,
-                created: log.created
+                created: log.created_at
             }));
-            const shaped = applyLimit(projected, limit, offset);
             const summary = `${shaped.returned} of ${shaped.total} cook log entr${shaped.total === 1 ? 'y' : 'ies'}.`;
-            return { content: [{ type: 'text', text: listText(summary, shaped.items, e => `${e.created.slice(0, 10)} ${e.recipe_name}${e.rating !== null ? ` (${e.rating}/5)` : ''}`) }], structuredContent: shaped };
+            return { content: [{ type: 'text', text: listText(summary, items, e => `${e.created.slice(0, 10)} ${e.recipe_name}${e.rating !== null ? ` (${e.rating}/5)` : ''}`) }], structuredContent: { ...shaped, items } };
         }
     );
 }
