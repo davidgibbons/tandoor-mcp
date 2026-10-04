@@ -108,22 +108,14 @@ const CONTRACTS: Record<string, ServiceContract> = {
                 path: '/api/meal-plan/',
                 method: 'get',
                 fixture: 'test/fixtures/meal-plan.json',
-                fields: ['results.id', 'results.date', 'results.meal_type.name', 'results.recipe.id', 'results.recipe.name', 'results.servings']
+                fields: ['results.id', 'results.from_date', 'results.meal_type.name', 'results.recipe.id', 'results.recipe.name', 'results.servings']
             },
             { path: '/api/shopping-list-entry/', method: 'get', fixture: 'test/fixtures/shopping-list.json', fields: ['results.id', 'results.food.name', 'results.amount', 'results.checked'] },
-            { path: '/api/cook-log/', method: 'get', fixture: 'test/fixtures/cook-log.json', fields: ['results.id', 'results.recipe.name', 'results.servings', 'results.created'] }
+            { path: '/api/cook-log/', method: 'get', fixture: 'test/fixtures/cook-log.json', fields: ['results.id', 'results.recipe', 'results.servings', 'results.created_at'] }
         ]
     }
 };
 
-// specs/tandoor.json was not captured: this instance's /api/schema/ redirects
-// to a session-auth login page rather than accepting the bearer token, so
-// scripts/fetch-specs.sh cannot fetch it non-interactively (matching the
-// no-published-spec fallback the plan anticipated for self-hosted
-// deployments). The spec-declares-field assertions below skip until a
-// maintainer captures one manually (e.g. exporting it from a logged-in
-// browser session) — see CONTRIBUTING.md.
-//
 // meal-plan, shopping-list, and cook-log were captured but empty (0 results)
 // on the instance used to capture them — this Tandoor has no meal plan
 // entries, shopping list entries, or cook log entries yet. An empty fixture

@@ -20,8 +20,6 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Re-fetch the spec
-        env:
-          TANDOOR_URL: ${{ secrets.TANDOOR_URL }}
         run: npm run specs:fetch
       - run: npm run codegen
       - run: npm run typecheck

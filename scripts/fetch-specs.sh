@@ -1,20 +1,29 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Fetches Tandoor's OpenAPI schema (drf-spectacular, default path /api/schema/)
-# and writes it reformatted, so the committed diff shows semantic drift rather
-# than reflow noise. Needs TANDOOR_URL in the environment.
+# Writes Tandoor's OpenAPI schema to specs/tandoor.json, reformatted so the
+# committed diff shows semantic drift rather than reflow noise. Generates it
+# from the latest official image by default; set TANDOOR_URL to fetch from a
+# running instance instead.
 
-: "${TANDOOR_URL:?Set TANDOOR_URL to your Tandoor instance, e.g. https://recipes.example.com}"
+raw="$(mktemp)"
+trap 'rm -f "$raw"' EXIT
+
+if [[ -n "${TANDOOR_URL:-}" ]]; then
+    curl -fsSL "${TANDOOR_URL%/}/api/schema/" -o "$raw"
+else
+    docker run --rm --pull always \
+        -e SECRET_KEY=schema-only -e DB_ENGINE=django.db.backends.sqlite3 -e POSTGRES_DB=/tmp/db.sqlite3 \
+        --entrypoint sh vabene1111/recipes:latest \
+        -c 'cd /opt/recipes && venv/bin/python manage.py spectacular --format openapi-json --file /tmp/s.json >/dev/null 2>&1 && cat /tmp/s.json' \
+        > "$raw"
+fi
 
 mkdir -p specs
-curl -fsSL "${TANDOOR_URL%/}/api/schema/" -o /tmp/tandoor-spec-raw.json
-
 node -e "
 const fs = require('node:fs');
-const doc = JSON.parse(fs.readFileSync('/tmp/tandoor-spec-raw.json', 'utf8'));
+const doc = JSON.parse(fs.readFileSync(process.argv[1], 'utf8'));
 fs.writeFileSync('specs/tandoor.json', JSON.stringify(doc, null, 2) + '\n');
-"
+" "$raw"
 
-rm -f /tmp/tandoor-spec-raw.json
 echo "Wrote specs/tandoor.json"

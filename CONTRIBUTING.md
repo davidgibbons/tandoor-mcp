@@ -126,11 +126,12 @@ config flag, and the cost of under-classifying is someone's data.
 
 ## Vendored API spec
 
-`specs/tandoor.json` is Tandoor's upstream OpenAPI document, refreshed by
-`npm run specs:fetch` and regenerated into `src/generated/` by
-`npm run codegen`. Both are committed and move together — a spec refreshed
-without a regeneration leaves the types describing an API that no longer
-exists. Regenerate with `npm run specs:fetch && npm run codegen` and review
+`specs/tandoor.json` is Tandoor's upstream OpenAPI document, committed so the
+nightly [drift workflow](.github/workflows/openapi-drift.yml) has something to
+diff against. `npm run specs:fetch` generates it from the latest official
+Tandoor image, which needs Docker; set `TANDOOR_URL` to fetch from a running
+instance instead. `npm run codegen` turns it into the gitignored types in
+`src/generated/`. Regenerate with `npm run specs:fetch && npm run codegen` and review
 the diff.
 
 ## Recorded fixtures
