@@ -3,7 +3,7 @@
   "name": "io.github.davidgibbons/tandoor-mcp",
   "title": "tandoor-mcp",
   "description": "An MCP server for Tandoor Recipes: recipe search and authoring, meal planning, shopping lists, and pantry tracking.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "websiteUrl": "https://github.com/davidgibbons/tandoor-mcp",
   "repository": {
     "url": "https://github.com/davidgibbons/tandoor-mcp",
