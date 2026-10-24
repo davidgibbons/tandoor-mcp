@@ -12,51 +12,6 @@
     "description": "Tandoor API Docs"
   },
   "paths": {
-    "/api-token-auth/": {
-      "post": {
-        "operationId": "apiTokenAuthCreate",
-        "tags": [
-          "api-token-auth"
-        ],
-        "requestBody": {
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "$ref": "#/components/schemas/AuthToken"
-              }
-            },
-            "multipart/form-data": {
-              "schema": {
-                "$ref": "#/components/schemas/AuthToken"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AuthToken"
-              }
-            }
-          },
-          "required": true
-        },
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AuthToken"
-                }
-              }
-            },
-            "description": ""
-          }
-        }
-      }
-    },
     "/api/access-token/": {
       "get": {
         "operationId": "apiAccessTokenList",
@@ -17826,28 +17781,6 @@
           "updated_at"
         ]
       },
-      "AuthToken": {
-        "type": "object",
-        "properties": {
-          "username": {
-            "type": "string",
-            "writeOnly": true
-          },
-          "password": {
-            "type": "string",
-            "writeOnly": true
-          },
-          "token": {
-            "type": "string",
-            "readOnly": true
-          }
-        },
-        "required": [
-          "password",
-          "token",
-          "username"
-        ]
-      },
       "AutoMealPlan": {
         "type": "object",
         "properties": {
@@ -18120,10 +18053,12 @@
             "type": "integer"
           },
           "servings": {
-            "type": "integer",
-            "maximum": 9223372036854776000,
-            "minimum": -9223372036854776000,
-            "format": "int64",
+            "type": "number",
+            "format": "double",
+            "maximum": 10000,
+            "minimum": -10000,
+            "exclusiveMaximum": true,
+            "exclusiveMinimum": true,
             "nullable": true
           },
           "rating": {
@@ -21390,10 +21325,12 @@
             "type": "integer"
           },
           "servings": {
-            "type": "integer",
-            "maximum": 9223372036854776000,
-            "minimum": -9223372036854776000,
-            "format": "int64",
+            "type": "number",
+            "format": "double",
+            "maximum": 10000,
+            "minimum": -10000,
+            "exclusiveMaximum": true,
+            "exclusiveMinimum": true,
             "nullable": true
           },
           "rating": {
@@ -24223,11 +24160,20 @@
           "version": {
             "type": "string"
           },
+          "email": {
+            "type": "boolean"
+          },
           "unauthenticated_theme_from_space": {
             "type": "integer"
           },
           "force_theme_from_space": {
             "type": "integer"
+          },
+          "enable_signup": {
+            "type": "boolean"
+          },
+          "socialaccount_only": {
+            "type": "boolean"
           },
           "logo_color_32": {
             "type": "string",
@@ -24265,11 +24211,14 @@
         "required": [
           "debug",
           "disable_external_connectors",
+          "email",
+          "enable_signup",
           "force_theme_from_space",
           "hosted",
           "imprint_url",
           "privacy_url",
           "shopping_min_autosync_interval",
+          "socialaccount_only",
           "terms_url",
           "unauthenticated_theme_from_space",
           "version"
