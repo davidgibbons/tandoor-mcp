@@ -12,51 +12,6 @@
     "description": "Tandoor API Docs"
   },
   "paths": {
-    "/api-token-auth/": {
-      "post": {
-        "operationId": "apiTokenAuthCreate",
-        "tags": [
-          "api-token-auth"
-        ],
-        "requestBody": {
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "$ref": "#/components/schemas/AuthToken"
-              }
-            },
-            "multipart/form-data": {
-              "schema": {
-                "$ref": "#/components/schemas/AuthToken"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AuthToken"
-              }
-            }
-          },
-          "required": true
-        },
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AuthToken"
-                }
-              }
-            },
-            "description": ""
-          }
-        }
-      }
-    },
     "/api/access-token/": {
       "get": {
         "operationId": "apiAccessTokenList",
@@ -17826,28 +17781,6 @@
           "updated_at"
         ]
       },
-      "AuthToken": {
-        "type": "object",
-        "properties": {
-          "username": {
-            "type": "string",
-            "writeOnly": true
-          },
-          "password": {
-            "type": "string",
-            "writeOnly": true
-          },
-          "token": {
-            "type": "string",
-            "readOnly": true
-          }
-        },
-        "required": [
-          "password",
-          "token",
-          "username"
-        ]
-      },
       "AutoMealPlan": {
         "type": "object",
         "properties": {
@@ -18120,10 +18053,12 @@
             "type": "integer"
           },
           "servings": {
-            "type": "integer",
-            "maximum": 9223372036854776000,
-            "minimum": -9223372036854776000,
-            "format": "int64",
+            "type": "number",
+            "format": "double",
+            "maximum": 10000,
+            "minimum": -10000,
+            "exclusiveMaximum": true,
+            "exclusiveMinimum": true,
             "nullable": true
           },
           "rating": {
@@ -19310,7 +19245,15 @@
             "type": "boolean"
           },
           "household": {
-            "$ref": "#/components/schemas/Household"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Household"
+              }
+            ],
+            "readOnly": true
+          },
+          "household_id": {
+            "type": "integer"
           }
         },
         "required": [
@@ -21390,10 +21333,12 @@
             "type": "integer"
           },
           "servings": {
-            "type": "integer",
-            "maximum": 9223372036854776000,
-            "minimum": -9223372036854776000,
-            "format": "int64",
+            "type": "number",
+            "format": "double",
+            "maximum": 10000,
+            "minimum": -10000,
+            "exclusiveMaximum": true,
+            "exclusiveMinimum": true,
             "nullable": true
           },
           "rating": {
@@ -21854,7 +21799,15 @@
             "type": "boolean"
           },
           "household": {
-            "$ref": "#/components/schemas/Household"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Household"
+              }
+            ],
+            "readOnly": true
+          },
+          "household_id": {
+            "type": "integer"
           }
         }
       },
@@ -22302,6 +22255,11 @@
                 "$ref": "#/components/schemas/CustomFilter"
               }
             ],
+            "readOnly": true,
+            "nullable": true
+          },
+          "filter_id": {
+            "type": "integer",
             "nullable": true
           },
           "order": {
@@ -22787,6 +22745,10 @@
                 "$ref": "#/components/schemas/AiProvider"
               }
             ],
+            "readOnly": true
+          },
+          "ai_default_provider_id": {
+            "type": "integer",
             "nullable": true
           },
           "space_setup_completed": {
@@ -23311,6 +23273,10 @@
                 "$ref": "#/components/schemas/MealType"
               }
             ],
+            "readOnly": true
+          },
+          "default_meal_type_id": {
+            "type": "integer",
             "nullable": true
           },
           "filter_to_supermarket": {
@@ -23754,6 +23720,11 @@
                 "$ref": "#/components/schemas/CustomFilter"
               }
             ],
+            "readOnly": true,
+            "nullable": true
+          },
+          "filter_id": {
+            "type": "integer",
             "nullable": true
           },
           "order": {
@@ -23765,6 +23736,7 @@
         },
         "required": [
           "created_by",
+          "filter",
           "name",
           "shared"
         ]
@@ -24223,11 +24195,20 @@
           "version": {
             "type": "string"
           },
+          "email": {
+            "type": "boolean"
+          },
           "unauthenticated_theme_from_space": {
             "type": "integer"
           },
           "force_theme_from_space": {
             "type": "integer"
+          },
+          "enable_signup": {
+            "type": "boolean"
+          },
+          "socialaccount_only": {
+            "type": "boolean"
           },
           "logo_color_32": {
             "type": "string",
@@ -24265,11 +24246,14 @@
         "required": [
           "debug",
           "disable_external_connectors",
+          "email",
+          "enable_signup",
           "force_theme_from_space",
           "hosted",
           "imprint_url",
           "privacy_url",
           "shopping_min_autosync_interval",
+          "socialaccount_only",
           "terms_url",
           "unauthenticated_theme_from_space",
           "version"
@@ -24961,6 +24945,10 @@
                 "$ref": "#/components/schemas/AiProvider"
               }
             ],
+            "readOnly": true
+          },
+          "ai_default_provider_id": {
+            "type": "integer",
             "nullable": true
           },
           "space_setup_completed": {
@@ -24971,6 +24959,7 @@
           }
         },
         "required": [
+          "ai_default_provider",
           "ai_monthly_credits_used",
           "allow_sharing",
           "created_at",
@@ -25663,6 +25652,10 @@
                 "$ref": "#/components/schemas/MealType"
               }
             ],
+            "readOnly": true
+          },
+          "default_meal_type_id": {
+            "type": "integer",
             "nullable": true
           },
           "filter_to_supermarket": {
@@ -25683,6 +25676,7 @@
           }
         },
         "required": [
+          "default_meal_type",
           "food_children_exist",
           "food_inherit_default",
           "user"
